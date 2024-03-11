@@ -1,5 +1,3 @@
-// Original code, March 5, 2024
-
 #define TIMER_INTERRUPT_DEBUG 0
 #define _TIMERINTERRUPT_LOGLEVEL_ 0
 #include "NRF52_MBED_TimerInterrupt.h"
@@ -11,14 +9,14 @@
 // IMU
 #include <LSM6DS3.h>
 #include <Wire.h>
-//GPS
+// GPS
 #include <Adafruit_GPS.h>
-//SIM
+// SIM
 #include "SIM800L.h"
 
 //---------------- GLOBAL VARIABLES -----------------------------
 myConfig Config;
-bool isAuthenticate = false;
+bool isAuthenticated = false;
 // Timer
 #define HW_TIMER_INTERVAL_MS 1
 NRF52_MBED_Timer ITimer(NRF_TIMER_3);
@@ -40,12 +38,12 @@ BLEDescriptor ActivationDescriptor("2901", "Activation");
 BLEDescriptor UnlockDescriptor("2901", "Unlock");
 BLEDescriptor MACDescriptor("2901", "MAC Address");
 
-bool BLE_activated = true;  //true if the bluetooth is activated
-uint32_t tim_connec = 0;    // time in ms or we start to activate the bluetooth following a detection of movement
+bool BLE_activated = true;  // true if the Bluetooth is activated
+uint32_t tim_connec = 0;    // time in ms before we start to activate the Bluetooth following a detection of movement
 
 
-//IMU : LSM6DS3
-LSM6DS3 imu(I2C_MODE, 0x6A);  //I2C device address 0x6A
+// IMU: LSM6DS3
+LSM6DS3 imu(I2C_MODE, 0x6A);  // I2C device address 0x6A
 uint32_t timer_imu = millis();
 bool MotionBig = false;
 bool MotionSmall = false;
@@ -62,7 +60,7 @@ uint32_t timer = millis();
 UART Serial2(D0, D1, NC, NC);
 #define SIM800_RST_PIN A5
 #define SIM800_DTR_PIN A5
-#define TIME_OUT_MS_BLE_ACT 5000  // 300s 300000 times in ms or bluetooth enabled to allow connection following motion detection. (value 5000 for 5s tests)
+#define TIME_OUT_MS_BLE_ACT 5000  // 300000 = 300s: time in ms where the Bluetooth is enabled to allow connection following motion detection. (value 5000 for 5s tests)
 SIM800L* sim800l;
 bool send_position = false;
 bool send_move = false;
@@ -73,25 +71,25 @@ void PulseBuzzer(int repetitions, unsigned long durationOn, unsigned long durati
 unsigned long previousMillis = 0;
 int currentRep = 0;
 
-//Electroaimant
-const int aimantPin = D3;
+// Electro-magnet
+const int magnetPin = D3;
 
 // Set a threshold to determine a "small" or "big" movement
 
 float SmallMT = 20.0;  //     SmallMotionThreshold
-float BigMT = 150.0;   //    BigMotionThreshold
+float BigMT = 150.0;   //     BigMotionThreshold
 
 float SmallRT = 20.0;  //     SmallRotationThreshold
 float BigRT = 125.0;   //     BigRotationThreshold
 
-//batterie
+// Battery
 #define VBAT_ENABLE 14
 float getBatteryVoltage();
 
 float MotionData;
 float RotationData;
 
-unsigned long StartCoolDown = 0;  //check point for millis aided cooldown
+unsigned long StartCoolDown = 0;  // check point for millis aided cooldown
 
 
 //-------------------------------- SETUP ----------------------------------------
@@ -100,15 +98,15 @@ void setup() {
   digitalWrite(buzzerPin, HIGH);
   delay(1000);
   digitalWrite(buzzerPin, LOW);
-  Serial.println(" buzzer");
+  Serial.println("buzzer");
 
-  pinMode(aimantPin, OUTPUT);  //setup electro-aimant
-  digitalWrite(aimantPin, HIGH);
+  pinMode(magnetPin, OUTPUT);  // setup electro-magnet
+  digitalWrite(magnetPin, HIGH);
   delay(1000);
-  digitalWrite(aimantPin, LOW);
+  digitalWrite(magnetPin, LOW);
   Serial.println("electro");
 
-  //debug led initialization
+  // debug LED initialization
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LEDR, LOW);
 
@@ -126,7 +124,7 @@ void setup() {
 
   Serial.begin(115200);
   if (!Serial) delay(1000);
-  Serial.println("BLE Antivol Peripheral");
+  Serial.println("BLE Anti-theft Peripheral");
 
   // Timer
   if (ITimer.attachInterruptInterval(HW_TIMER_INTERVAL_MS * 1000, TimerHandler))  // Interval in microsecs
@@ -137,11 +135,11 @@ void setup() {
   ISR_Timer.setInterval(TIMER_INTERVAL_120S, GPS_ISR);
 
   ble_setup();
-  Serial.println(" ble_setup");
+  Serial.println("ble_setup");
   imu_setup();
-  Serial.println(" imu_setup");
+  Serial.println("imu_setup");
   gps_setup();
-  Serial.println(" gps_setup");
+  Serial.println("gps_setup");
   Serial2.begin(9600);
   delay(100);
   sim800l = new SIM800L((Stream*)&Serial2, SIM800_RST_PIN, 200, 512);
@@ -150,15 +148,15 @@ void setup() {
   sim_setup();
   Serial.println("SIM SETUP");
 
-  analogReadResolution(ADC_RESOLUTION);  //setup battery reading
+  analogReadResolution(ADC_RESOLUTION);  // setup battery reading
   pinMode(PIN_VBAT, INPUT);
   pinMode(VBAT_ENABLE, OUTPUT);
   digitalWrite(VBAT_ENABLE, LOW);
 
-  Serial.println("fin setup ");
+  Serial.println("setup end");
   digitalWrite(LEDR, HIGH);
   digitalWrite(LEDG, LOW);
-  Temps();
+  Time();
 
   Serial.print("V Bat: ");
   Serial.println(getBatteryVoltage());
@@ -170,27 +168,27 @@ void loop() {
   MotionData = getMotionData();
   RotationData = getRotationData();
 
-  if (Config.isActivate) {  //alarm enalbled
+  if (Config.isActivated) {  // alarm enabled
     activateGPS();
 
-    if (MotionData > BigMT || RotationData > BigRT) {  //Big motion detection
+    if (MotionData > BigMT || RotationData > BigRT) {  // Big motion detection
       if (MotionData > BigMT) {
-        Serial.print("Motion detected : ");
+        Serial.print("Motion detected: ");
         Serial.println(MotionData);
       } else {
-        Serial.print("Rotation detected : ");
+        Serial.print("Rotation detected: ");
         Serial.println(RotationData);
       }
       MotionBig = true;
       MotionSmall = false;
       send_move = true;
 
-    } else if ((MotionBig == false) && (MotionData > SmallMT || RotationData > SmallRT)) {  //Small motion detection
+    } else if ((MotionBig == false) && (MotionData > SmallMT || RotationData > SmallRT)) {  // Small motion detection
       if (MotionData > SmallMT) {
-        Serial.print(" Small motion: ");
+        Serial.print("Small motion: ");
         Serial.println(MotionData);
       } else {
-        Serial.print("Small rota : ");
+        Serial.print("Small rotation: ");
         Serial.println(RotationData);
       }
       MotionSmall = true;
@@ -198,18 +196,18 @@ void loop() {
   }
 
   if (MotionBig) {
-    PulseBuzzer(5, 500, 1000);  // repetitions, DurationOn , DurationOff
-    //sending positions & shock notif via SIM module
+    PulseBuzzer(5, 500, 1000);  // repetitions, DurationOn, DurationOff
+    // sending positions & shock notification via SIM module
   }
 
   if (MotionSmall) {
-    PulseBuzzer(3, 100, 100);  // repetitions, DurationOn , DurationOff
+    PulseBuzzer(3, 100, 100);  // repetitions, DurationOn, DurationOff
   }
 
   MotionDetect = true;
   if ((MotionData > SmallMT) || (RotationData > SmallRT)) {
     if (MotionData > SmallMT) {
-      Serial.print("WAKE UP : ");
+      Serial.print("WAKE UP: ");
       Serial.println(MotionData);
     } else {
       Serial.print("WAKE UP Rota: ");
@@ -217,7 +215,7 @@ void loop() {
     }
   }
 
-  //if a mvt is detected and bluetooth is disabled bluetooth activation
+  // if a mvt is detected and Bluetooth is disabled Bluetooth activation
   if (MotionDetect == true) {
     tim_connec = millis();
     MotionDetect = false;
@@ -228,25 +226,25 @@ void loop() {
     }
   }
 
-  //bluetooth actived when we are interacting with the module or when the alarm is on
-  if ((BLE_activated == true) || (Config.isActivate)) {
-    BLE.poll();  //communication autorisé
+  // Bluetooth actived when we are interacting with the module or when the alarm is on
+  if ((BLE_activated == true) || (Config.isActivated)) {
+    BLE.poll();  // communication authorized
   }
 
-  //at the end of the time during which the lock has not moved, if bluetooth is activated, and the lock is not in activation mode then it is turned off to save the battery
-  if ((millis() - tim_connec > TIME_OUT_MS_BLE_ACT) && (BLE_activated == true) && (Config.isActivate != 1)) {
+  // at the end of the time during which the lock has not moved, if Bluetooth is activated, and the lock is not in activation mode then it is turned off to save the battery
+  if ((millis() - tim_connec > TIME_OUT_MS_BLE_ACT) && (BLE_activated == true) && (Config.isActivated != 1)) {
     BLE_activated = false;
     Serial.println("timeout->BLE_END");
     BLE.end();
   }
 
-  //capture clocked GPS data
+  // capture clocked GPS data
   GPS.read();
   if (GPS.newNMEAreceived()) {
     Serial.print(GPS.lastNMEA());    // this also sets the newNMEAreceived() flag to false
     if (!GPS.parse(GPS.lastNMEA()))  // this also sets the newNMEAreceived() flag to false
-      Serial.println("fail to parse");
-    ;  // we can fail to parse a   sentence in which case we should just wait for another
+      Serial.println("failed to parse");
+    ;  // we can fail to parse a sentence in which case we should just wait for another
   }
 
   if (GPS.fix && position_acquired == false) {  // if location detected
@@ -257,8 +255,8 @@ void loop() {
     GPS.sendCommand("$PMTK225,4*2F");  // send to backup mode
   }
 
-  if (send_move) {  //sending of positions via SIM module
-    Serial.println("Envoi detection mouvement");
+  if (send_move) {  // sending positions via SIM module
+    Serial.println("Sending mouvement detection");
     sim800l->setupGPRS("iot.1nce.net");
     sim800l->connectGPRS();
     String Route = "http://141.94.244.11:2000/sendNotfication/" + BLE.address();
@@ -281,8 +279,8 @@ void loop() {
     send_move = false;
   }
 
-  if (send_position) {  //regular sending of positions via SIM module
-    Serial.println("Envoi regulier position");
+  if (send_position) {  // sending regular updates of positions via SIM module
+    Serial.println("Sending regular position update");
     sim800l->setupGPRS("iot.1nce.net");
     sim800l->connectGPRS();
     String RouteCoord = "http://141.94.244.11:2000/updateCoordinate/" + BLE.address();
@@ -325,13 +323,13 @@ void ble_setup(void) {
   // add service
   BLE.addService(PasswordService);
   BLE.addService(ConfigService);
-  // set the initial value for the characeristic:
+  // set the initial value for the characeristic
   PasswordCharacteristic.writeValue(0);
   NameCharacteristic.writeValue("\n");
   ActivationCharacteristic.writeValue(false);
   UnlockCharacteristic.writeValue(false);
   MACCharacteristic.writeValue(BLE.address());
-  //set event handler
+  // set event handler
   BLE.setEventHandler(BLEConnected, onConnect);
   BLE.setEventHandler(BLEDisconnected, onDisconnect);
   PasswordCharacteristic.setEventHandler(BLEWritten, onWritePassword);
@@ -358,11 +356,11 @@ void gps_setup(void) {
   GPS.begin(9600);
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
   GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);
-  GPS.sendCommand("$PMTK225,4*2F");  // send to backup mode
-  // GPS.sendCommand("$PMTK225,8*23");   // send to Always Locate backup mode
-  // GPS.sendCommand("$PMTK225,9*22");   // send to Always Locate standby mode
-  // GPS.sendCommand("$PMTK225,2,4000,15000,24000,90000*16");  // send to periodic standby mode
-  // GPS.sendCommand("$PMTK161,0*28");   // send to standby mode
+  GPS.sendCommand("$PMTK225,4*2F");   // send to backup mode
+  //GPS.sendCommand("$PMTK225,8*23");   // send to Always Locate backup mode
+  //GPS.sendCommand("$PMTK225,9*22");   // send to Always Locate standby mode
+  //GPS.sendCommand("$PMTK225,2,4000,15000,24000,90000*16");  // send to periodic standby mode
+  //GPS.sendCommand("$PMTK161,0*28");   // send to standby mode
 }
 
 void sim_setup(void) {
@@ -406,7 +404,7 @@ float getBatteryVoltage() {
 // provides the absolute difference in acceleration between consecutive calls, helping to monitor changes in motion over time.
 float getMotionData() {
   static float previousAcceleration = 0;
-  //r
+  // r
   float accelX = imu.readFloatAccelX();
   float accelY = imu.readFloatAccelY();
   float accelZ = imu.readFloatAccelZ();
@@ -415,7 +413,7 @@ float getMotionData() {
   float MotionDataerence = currentAcceleration - previousAcceleration;  // Calculate the acceleration difference
   previousAcceleration = currentAcceleration;
 
-  return fabs(MotionDataerence);  //returns a value always positive
+  return fabs(MotionDataerence);  // returns a value always positive
 }
 
 float getRotationData() {
@@ -433,16 +431,16 @@ float getRotationData() {
   return fabs(RotationDataerence);
 }
 
-void Temps(void) {
-  unsigned long millisPassed = millis();
-  unsigned int seconds = (millisPassed / 1000) % 60;
-  unsigned int minutes = (millisPassed / (1000 * 60)) % 60;
-  unsigned int hours = (millisPassed / (1000 * 60 * 60)) % 24;
-  Serial.print("Détecté a : ");
+void Time(void) {
+  unsigned long millisElapsed = millis();
+  unsigned int seconds = (millisElapsed / 1000) % 60;
+  unsigned int minutes = (millisElapsed / (1000 * 60)) % 60;
+  unsigned int hours = (millisElapsed / (1000 * 60 * 60)) % 24;
+  Serial.print("Detected at: ");
   Serial.print(hours);
   Serial.print("h");
   Serial.print(minutes);
-  Serial.print("mn");
+  Serial.print("m");
   Serial.print(seconds);
   Serial.println("s");
 }
@@ -467,13 +465,13 @@ void PulseBuzzer(int repetitions, unsigned long durationOn, unsigned long durati
 }
 
 void GPS_ISR() {
-  if (Config.isActivate != 0) {
+  if (Config.isActivated != 0) {
     if (!position_acquired) {
       start_gps = true;
       digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     } else {
-      // digitalWrite(GPS_WKUP_PIN, LOW);
-      // GPS.sendCommand("$PMTK225,4*2F");  // send to backup mode
+      //digitalWrite(GPS_WKUP_PIN, LOW);
+      //GPS.sendCommand("$PMTK225,4*2F");  // send to backup mode
       send_position = true;
       position_acquired = false;
     }
@@ -505,37 +503,37 @@ void onConnect(BLEDevice central) {
 void onDisconnect(BLEDevice central) {
   Serial.print(F("Disconnected from central: "));
   Serial.println(central.address());
-  isAuthenticate = false;
+  isAuthenticated = false;
   digitalWrite(LEDB, HIGH);
 }
 
 void onWritePassword(BLEDevice central, BLECharacteristic characteristic) {
-  const int motDePasseAttendu = 13330;
+  const int expectedPassword = 13330;
   short int value = PasswordCharacteristic.value();
   Conversion(value);
-  isAuthenticate = (value == motDePasseAttendu);
-  Serial.println(isAuthenticate ? "successful authentication" : "wrong password");
+  isAuthenticated = (value == expectedPassword);
+  Serial.println(isAuthenticated ? "successful authentification" : "wrong password");
 }
 
 char Conversion(unsigned short int data) {
-  char mdphexadecimal[5];
-  sprintf(mdphexadecimal, "%04X", data);
+  char passwordhexadecimal[5];
+  sprintf(passwordhexadecimal, "%04X", data);
 
   for (int i = 0; i < 2; ++i) {
-    char temp = mdphexadecimal[i];
-    mdphexadecimal[i] = mdphexadecimal[2 + i];
-    mdphexadecimal[2 + i] = temp;
+    char temp = passwordhexadecimal[i];
+    passwordhexadecimal[i] = passwordhexadecimal[2 + i];
+    passwordhexadecimal[2 + i] = temp;
   }
-  //Serial.println("Mot de passe : " + String(valeur) + " ");  //used to see the value in decimal
+  //Serial.println("Password: " + String(value) + " ");  // used to see the value in decimal
   Serial.print("Written password  = ");
-  Serial.println(mdphexadecimal);
+  Serial.println(passwordhexadecimal);
 }
 
 void onWriteName(BLEDevice central, BLECharacteristic characteristic) {
-  if (isAuthenticate) {
+  if (isAuthenticated) {
     Config.Name = NameCharacteristic.value();
     String value = NameCharacteristic.value();
-    Serial.print("Written name : ");
+    Serial.print("Written name: ");
     Serial.println(value);
   } else {
     NameCharacteristic.writeValue("\n");
@@ -544,8 +542,8 @@ void onWriteName(BLEDevice central, BLECharacteristic characteristic) {
 
 void onReadName(BLEDevice central, BLECharacteristic characteristic) {
   Serial.println("CALLBACK READ");
-  Serial.println(isAuthenticate);
-  if (isAuthenticate) {
+  Serial.println(isAuthenticated);
+  if (isAuthenticated) {
     NameCharacteristic.writeValue(Config.Name);
   } else {
     NameCharacteristic.writeValue("\n");
@@ -553,36 +551,36 @@ void onReadName(BLEDevice central, BLECharacteristic characteristic) {
 }
 
 void onWriteActivation(BLEDevice central, BLECharacteristic characteristic) {
-  if (isAuthenticate) {
-    Config.isActivate = ActivationCharacteristic.value();
-    if (Config.isActivate != 0) {
-      Serial.println("Alarme enabled");
+  if (isAuthenticated) {
+    Config.isActivated = ActivationCharacteristic.value();
+    if (Config.isActivated != 0) {
+      Serial.println("Alarm enabled");
       digitalWrite(SIM800_DTR_PIN, LOW);  // put in normal mode
       delay(100);
-      sim800l->setPowerMode(NORMAL);  // set normal functionnality mode
+      sim800l->setPowerMode(NORMAL);  // set normal functionality mode
     } else {
-      Serial.print("Désactivation");
-      sim800l->setPowerMode(MINIMUM);      // set minimum functionnality mode
+      Serial.print("Deactivation");
+      sim800l->setPowerMode(MINIMUM);      // set minimum functionality mode
       digitalWrite(SIM800_DTR_PIN, HIGH);  // put in sleep mode
     }
   } else {
-    ActivationCharacteristic.writeValue(Config.isActivate);
+    ActivationCharacteristic.writeValue(Config.isActivated);
   }
 }
 
 void onReadActivation(BLEDevice central, BLECharacteristic characteristic) {
-  // Serial.println("CALLBACK READ");
-  // Serial.println(isAuthenticate);
-  ActivationCharacteristic.writeValue(Config.isActivate);
+  //Serial.println("CALLBACK READ");
+  //Serial.println(isAuthenticate);
+  ActivationCharacteristic.writeValue(Config.isActivated);
 }
 
 void onWriteUnlock(BLEDevice central, BLECharacteristic characteristic) {
-  if (isAuthenticate) {
+  if (isAuthenticated) {
     // activate electromagnet
     Serial.println("Unlock");
-    digitalWrite(aimantPin, HIGH);
+    digitalWrite(magnetPin, HIGH);
     delay(2000);
-    digitalWrite(aimantPin, LOW);
+    digitalWrite(magnetPin, LOW);
   }
 }
 
