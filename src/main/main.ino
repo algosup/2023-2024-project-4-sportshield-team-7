@@ -94,64 +94,16 @@ unsigned long StartCoolDown = 0;  // check point for millis aided cooldown
 
 //-------------------------------- SETUP ----------------------------------------
 void setup() {
-  pinMode(buzzerPin, OUTPUT);  // setup for buzzer
-  digitalWrite(buzzerPin, HIGH);
-  delay(1000);
-  digitalWrite(buzzerPin, LOW);
-  Serial.println("buzzer");
-
-  pinMode(magnetPin, OUTPUT);  // setup electro-magnet
-  digitalWrite(magnetPin, HIGH);
-  delay(1000);
-  digitalWrite(magnetPin, LOW);
-  Serial.println("electro");
-
-  // debug LED initialization
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LEDR, LOW);
-
-  // power bridge control
-  pinMode(D4, OUTPUT);
-  digitalWrite(D4, HIGH);
-
-  // power battery control with the transistor
-  pinMode(D9, OUTPUT);
-  digitalWrite(D9, HIGH);
-
-  // battery charging enable with high current 100mA > 50mA
-  pinMode(P0_13, OUTPUT);
-  digitalWrite(P0_13, LOW);
-
-  Serial.begin(115200);
-  if (!Serial) delay(1000);
-  Serial.println("BLE Anti-theft Peripheral");
-
-  // Timer
-  if (ITimer.attachInterruptInterval(HW_TIMER_INTERVAL_MS * 1000, TimerHandler))  // Interval in microsecs
-  {
-    Serial.print(F("Starting ITimer OK, millis() = "));
-    Serial.println(millis());
-  }
-  ISR_Timer.setInterval(TIMER_INTERVAL_120S, GPS_ISR);
-
+  setupSerial();
+  setupBuzzer();
+  setupElectromagnet();
+  setupDebugLED();
+  setupTimer();
   ble_setup();
-  Serial.println("ble_setup");
   imu_setup();
-  Serial.println("imu_setup");
   gps_setup();
-  Serial.println("gps_setup");
-  Serial2.begin(9600);
-  delay(100);
-  sim800l = new SIM800L((Stream*)&Serial2, SIM800_RST_PIN, 200, 512);
-  pinMode(SIM800_DTR_PIN, OUTPUT);
-  delay(1000);
   sim_setup();
-  Serial.println("SIM SETUP");
-
-  analogReadResolution(ADC_RESOLUTION);  // setup battery reading
-  pinMode(PIN_VBAT, INPUT);
-  pinMode(VBAT_ENABLE, OUTPUT);
-  digitalWrite(VBAT_ENABLE, LOW);
+  setupBatteryReading();
 
   Serial.println("setup end");
   digitalWrite(LEDR, HIGH);
@@ -298,6 +250,42 @@ void loop() {
 }
 
 //------------- SETUP FUNCTIONS ------------------------------
+void setupSerial() {
+  Serial.begin(115200);
+  if (!Serial) delay(1000);
+  Serial.println("BLE Anti-theft Peripheral");
+}
+
+void setupBuzzer() {
+  pinMode(buzzerPin, OUTPUT);
+  digitalWrite(buzzerPin, HIGH);
+  delay(1000);
+  digitalWrite(buzzerPin, LOW);
+  Serial.println("buzzer");
+}
+
+void setupElectromagnet() {
+  pinMode(magnetPin, OUTPUT);
+  digitalWrite(magnetPin, HIGH);
+  delay(1000);
+  digitalWrite(magnetPin, LOW);
+  Serial.println("electro");
+}
+
+void setupDebugLED() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LEDR, LOW);
+}
+
+void setupTime() {
+  if (ITimer.attachInterruptInterval(HW_TIMER_INTERVAL_MS * 1000, TimerHandler))  // Interval in microsecs
+  {
+    Serial.print(F("Starting ITimer OK, millis() = "));
+    Serial.println(millis());
+  }
+  ISR_Timer.setInterval(TIMER_INTERVAL_120S, GPS_ISR);
+}
+
 void ble_setup(void) {
   if (!BLE.begin()) {
     Serial.println("starting Bluetooth® Low Energy module failed!");
@@ -340,6 +328,8 @@ void ble_setup(void) {
   UnlockCharacteristic.setEventHandler(BLEWritten, onWriteUnlock);
   // start advertising
   BLE.advertise();
+
+  Serial.println("ble_setup");
 }
 
 void imu_setup(void) {
@@ -348,6 +338,7 @@ void imu_setup(void) {
   } else {
     Serial.println("Accelerometer launched");
   }
+  Serial.println("imu_setup");
 }
 
 void gps_setup(void) {
@@ -361,9 +352,16 @@ void gps_setup(void) {
   //GPS.sendCommand("$PMTK225,9*22");   // send to Always Locate standby mode
   //GPS.sendCommand("$PMTK225,2,4000,15000,24000,90000*16");  // send to periodic standby mode
   //GPS.sendCommand("$PMTK161,0*28");   // send to standby mode
+  Serial.println("gps_setup");
 }
 
 void sim_setup(void) {
+  Serial2.begin(9600);
+  delay(100);
+  sim800l = new SIM800L((Stream*)&Serial2, SIM800_RST_PIN, 200, 512);
+  pinMode(SIM800_DTR_PIN, OUTPUT);
+  delay(1000);
+
   while (!sim800l->isReady()) {
     Serial.println(F("Problem to initialize AT command, retry in 1 sec"));
     digitalWrite(LEDR, !digitalRead(LEDR));
@@ -389,6 +387,15 @@ void sim_setup(void) {
   delay(50);
   sim800l->setPowerMode(MINIMUM);      // set minimum functionnality mode
   digitalWrite(SIM800_DTR_PIN, HIGH);  // put in sleep mode
+  
+  Serial.println("SIM SETUP");
+}
+
+void setupBatteryReading() {
+  analogReadResolution(ADC_RESOLUTION);
+  pinMode(PIN_VBAT, INPUT);
+  pinMode(VBAT_ENABLE, OUTPUT);
+  digitalWrite(VBAT_ENABLE, LOW);
 }
 
 
@@ -487,10 +494,6 @@ void activateGPS() {
 
 void TimerHandler() {
   ISR_Timer.run();
-}
-
-void SIM_ISR() {
-  send_position = true;
 }
 
 void onConnect(BLEDevice central) {
