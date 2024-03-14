@@ -95,3 +95,7 @@ The user should be able to stop the alarm before the end of a cycle. Our goal is
 Also, the device has to be able to send the GPS coordinates or notification while the alarm is on.
 
 ## Glossary
+
+- **GNSS**: Global Navigation Satellite System. It is the standard generic term for satellite navigation systems that provide autonomous geo-spatial positioning with global coverage.
+- **GSM**: Global System for Mobile Communications. It is a standard developed by the European Telecommunications Standards Institute to describe the protocols for second-generation digital cellular networks used by mobile devices such as mobile phones and tablets.
+- **NFC**: Near Field Communication. It is a set of communication protocols that enable two electronic devices, one of which is usually a portable device such as a smartphone, to establish communication by bringing them within 4 cm of each other.
