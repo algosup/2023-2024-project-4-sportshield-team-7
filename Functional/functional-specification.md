@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+<details>
+<summary>Table of content</summary>
+
 - [Functional Specifications](#functional-specifications)
   - [Table of Contents](#table-of-contents)
   - [1. Introduction](#1-introduction)
@@ -19,6 +22,8 @@
     - [3.7 NFC](#37-nfc)
     - [3.8 Alarm management](#38-alarm-management)
   - [Glossary](#glossary)
+  
+</details>
 
 ## 1. Introduction
 
