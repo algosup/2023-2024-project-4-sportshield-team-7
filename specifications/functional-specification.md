@@ -14,7 +14,7 @@
   - [2. How SportShield works](#2-how-sportshield-works)
   - [3. Functionalities](#3-functionalities)
     - [3.1 Battery management](#31-battery-management)
-    - [3.2 Shock detection](#32-shock-detection)
+    - [3.2 Motion detection](#32-motion-detection)
     - [3.3 Unlock](#33-unlock)
     - [3.4 Alarm](#34-alarm)
     - [3.5 Notifications](#35-notifications)
@@ -47,7 +47,7 @@ The following personas are the main users of the SportShield:
 
 ## 2. How SportShield works
 
-As of now, the device is equipped with a battery, a shock sensor, a buzzer, a Bluetooth module, a GNSS module, an electromagnet and a GMS module. The device is also equipped with a cable that can be wrapped around the ski equipment to lock it.
+As of now, the device is equipped with a battery, a motion sensor, a buzzer, a Bluetooth module, a GNSS module, an electromagnet and a GMS module. The device is also equipped with a cable that can be wrapped around the ski equipment to lock it.
 The device has two modes of operation:
 
 - **Sleep mode**: In this mode, the device is in a low-power state to save battery. The device sends GPS and battery information every 15 minutes, and this is the only time the device is active. The device enters Active mode if a motion is detected.
@@ -57,14 +57,15 @@ To unlock the device, the user has to use the mobile application, which contacts
 The device detects two types of motion, normal and strong shock. Depending on the type of shock, the device produces either 3 light beeps or 5 long beeps. The device sends a notification to the mobile app only if a strong shock is detected.
 
 ## 3. Functionalities
+<!-- order of priority -->
 
 ### 3.1 Battery management
 
 The primary goal of the solution is to improve the battery life of the device. As of now, the battery can only last for three days, at a rate of 2 hours a day. Our goal is to increase the battery life to at least 7 days at a rate of 6 hours a day.
 
-### 3.2 Shock detection
+### 3.2 Motion detection
 
-The device is equipped with a shock sensor that can detect translations and rotation around three axes. This feature is the most critical feature of the device. Our goal is to ensure that the device can detect any motion. Two types of shocks have to be detected:
+The device is equipped with a motion sensor that can detect translations and rotation around three axes. This feature is the most critical feature of the device. Our goal is to ensure that the device can detect any motion. Two types of shocks have to be detected:
 
 - **Shocks**: In this case, the device should only produce a small sound
 - **Strong shocks**: In this case, the device should produce a loud sound and send a notification to the mobile application
@@ -104,3 +105,8 @@ Also, the device has to be able to send the GPS coordinates or notification whil
 - **GNSS**: Global Navigation Satellite System. It is the standard generic term for satellite navigation systems that provide autonomous geo-spatial positioning with global coverage.
 - **GSM**: Global System for Mobile Communications. It is a standard developed by the European Telecommunications Standards Institute to describe the protocols for second-generation digital cellular networks used by mobile devices such as mobile phones and tablets.
 - **NFC**: Near Field Communication. It is a set of communication protocols that enable two electronic devices, one of which is usually a portable device such as a smartphone, to establish communication by bringing them within 4 cm of each other.
+
+
+<!-- speak about mountaineous condition -->
+<!-- Buget consideration -->
+<!-- risks -->
