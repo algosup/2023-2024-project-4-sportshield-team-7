@@ -1,5 +1,6 @@
 #define BUZZER_PIN D2
 #define ELECTROMAGNET_PIN D3
+#define BRIDGE_PIN D4
 
 int i = 0;
 
@@ -22,9 +23,12 @@ void setup() {
 
   // Test the electromagnet
   pinMode(ELECTROMAGNET_PIN, OUTPUT);
+  pinMode(BRIDGE_PIN, OUTPUT);
   delay(10);
   digitalWrite(ELECTROMAGNET_PIN, HIGH);
+  digitalWrite(BRIDGE_PIN, HIGH);
   delay(1000);
+  digitalWrite(BRIDGE_PIN, LOW);
   digitalWrite(ELECTROMAGNET_PIN, LOW);
   // With no surprise, the electromagnet did not activate
   // This is because the board is not powerful enough to power

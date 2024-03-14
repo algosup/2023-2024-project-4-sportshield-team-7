@@ -27,7 +27,7 @@ void playNote(unsigned long duration, unsigned int frequency) {
   delay(release);
 }
 
-void setup() {
+void setup_music() {
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
   pinMode(LED_GREEN, OUTPUT);
@@ -57,6 +57,6 @@ void setup() {
   digitalWrite(LED_GREEN, LOW);
 }
 
-void loop() {
+void loop_music() {
     // No loop
 }
