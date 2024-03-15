@@ -33,6 +33,7 @@
 ## 1. Introduction
 
 This document describes the functional specifications of SportShield. The team is composed of:
+
 | Name | Role |
 | ---- | ---- |
 | Manech Laguens | Project Manager |
@@ -48,6 +49,7 @@ SportShield is a device that is designed to prevent ski equipment from being sto
 
 ### 1.2 Purpose
 
+We have been entrusted with this project by Coris Innovation.
 The purpose of our team is to improve the existing solution and to add new functionalities to the device. The existing solution has some limitations that need to be addressed, like the battery life of the device. The full solution is also composed of a mobile application and a server. The mobile application and the server are outside the scope of our team. Our team is only responsible for the improvement of the device.
 
 ### 1.3 Personas
@@ -155,6 +157,7 @@ As the device is already provided to us with some components, there should not b
 
 ## Glossary
 
+- **Coris Innovation**: Coris Innovation is a company based in France and Switzerland that focuses on system engineering and process engineering. For more information, visit [Coris Innovation](https://www.corisinnovation.com/coris-innovation).
 - **Mountainous condition**: Mountainous condition refers to the weather conditions in mountainous areas. This includes snow, wind and low temperatures.
 - **GNSS**: Global Navigation Satellite System. It is the standard generic term for satellite navigation systems that provide autonomous geo-spatial positioning with global coverage.
 - **GSM**: Global System for Mobile Communications. It is a standard developed by the European Telecommunications Standards Institute to describe the protocols for second-generation digital cellular networks used by mobile devices such as mobile phones and tablets.
