@@ -32,7 +32,15 @@
 
 ## 1. Introduction
 
-This document describes the functional specifications of the SportShield.
+This document describes the functional specifications of SportShield. The team is composed of:
+| Name | Role |
+| ---- | ---- |
+| Manech Laguens | Project Manager |
+| Malo Archimbaud | Program Manager |
+| Mattéo Leffin | Technical Lead |
+| Léo Chartier | Software Engineer |
+| Mathis Kakal | QA |
+| Laurent Bouquin | Technical Writer |
 
 ### 1.1 Overview
 
@@ -52,7 +60,8 @@ The following personas are the main users of the SportShield:
 
 ### 1.4 Use cases
 
-- **Locking skis with SportShield**: A user wants to stop for a break at a restaurant. He locks his skis with SportShield by wrapping the cable around the skis and locking it. The user then goes to the restaurant. The device will go into sleep mode and emit sounds only if a motion is detected. After his meal, the user unlocks the skis using the mobile app and the Bluetooth connection on the device. The user then goes back to the slopes.
+- **Locking skis**: A user wants to stop for a break at a restaurant. He locks his skis with SportShield by wrapping the cable around the skis and locking it. The user then goes to the restaurant. The device will go into sleep mode and emit sounds only if a motion is detected. After his meal, the user unlocks the skis using the mobile app and the Bluetooth connection on the device. The user then goes back to the slopes.
+- **Retrieving skis**: A user has lost his skis. He uses the mobile app to locate the skis, thanks to the device sending the GPS coordinates. The user then goes to the location and can retrieve his skis
 
 ## 2. How SportShield works
 
