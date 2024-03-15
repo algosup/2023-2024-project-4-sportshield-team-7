@@ -11,6 +11,7 @@
     - [1.1 Overview](#11-overview)
     - [1.2 Purpose](#12-purpose)
     - [1.3 Personas](#13-personas)
+    - [1.4 Use cases](#14-use-cases)
   - [2. How SportShield works](#2-how-sportshield-works)
   - [3. Functionalities](#3-functionalities)
     - [3.1 Battery management](#31-battery-management)
@@ -21,6 +22,10 @@
     - [3.6 GPS positioning](#36-gps-positioning)
     - [3.7 NFC](#37-nfc)
     - [3.8 Alarm management](#38-alarm-management)
+    - [3.9 Security](#39-security)
+  - [4. Risks and assumptions](#4-risks-and-assumptions)
+    - [4.1 Risks](#41-risks)
+    - [4.2 Budget consideration](#42-budget-consideration)
   - [Glossary](#glossary)
   
 </details>
@@ -45,6 +50,10 @@ The following personas are the main users of the SportShield:
 
 - **Ski equipment renter**: The ski equipment renter is another target of SportShield. The renter would like to be able to rent the equipment without having to worry about the safety of the equipment, to avoid paying the deposit. He would also like to be notified if the device detects any motion.
 
+### 1.4 Use cases
+
+- **Locking skis with SportShield**: A user wants to stop for a break at a restaurant. He locks his skis with SportShield by wrapping the cable around the skis and locking it. The user then goes to the restaurant. The device will go into sleep mode and emit sounds only if a motion is detected. After his meal, the user unlocks the skis using the mobile app and the Bluetooth connection on the device. The user then goes back to the slopes.
+
 ## 2. How SportShield works
 
 As of now, the device is equipped with a battery, a motion sensor, a buzzer, a Bluetooth module, a GNSS module, an electromagnet and a GMS module. The device is also equipped with a cable that can be wrapped around the ski equipment to lock it.
@@ -57,7 +66,8 @@ To unlock the device, the user has to use the mobile application, which contacts
 The device detects two types of motion, normal and strong shock. Depending on the type of shock, the device produces either 3 light beeps or 5 long beeps. The device sends a notification to the mobile app only if a strong shock is detected.
 
 ## 3. Functionalities
-<!-- order of priority -->
+
+The following functionalities are what our team is responsible for. The functionalities are ordered by priority
 
 ### 3.1 Battery management
 
@@ -70,7 +80,7 @@ The device is equipped with a motion sensor that can detect translations and rot
 - **Shocks**: In this case, the device should only produce a small sound
 - **Strong shocks**: In this case, the device should produce a loud sound and send a notification to the mobile application
 
-The shock detection should be accurate enough to not be activated by the harsh weather conditions that can occur in mountainous areas, but only by a real attempt to steal the equipment. The normal shock produces a sound that prevents the thief from continuing, and the strong shock produces a louder sound and sends a notification to the user to alert him of the situation.
+The shock detection should be accurate enough to not be activated by the harsh weather conditions that can occur in mountainous conditions, but only by a real attempt to steal the equipment. The normal shock produces a sound that prevents the thief from continuing, and the strong shock produces a louder sound and sends a notification to the user to alert him of the situation.
 
 ### 3.3 Unlock
 
@@ -100,13 +110,26 @@ The NFC feature will ease the use of the device by the user.
 The user should be able to stop the alarm before the end of a cycle. Our goal is to add this feature to the device.
 Also, the device has to be able to send the GPS coordinates or notification while the alarm is on.
 
+### 3.9 Security
+
+The device should be secure enough to prevent malicious people from unlocking the device. Our goal is to ensure that the device is secure enough to prevent any unauthorized access. For example, extra layers of authentication could be added to the device.
+
+## 4. Risks and assumptions
+
+### 4.1 Risks
+
+| Risk | Impact | Mitigation |
+| ---- | ------ | ---------- |
+| Battery Lifetime | High | To ensure that the battery lasts long enough, tests in real conditions are being envisaged |
+| Privacy | Moderate | Malicious people could try to unlock the device. To ensure that it is not possible, extra layers of security will be added |
+
+### 4.2 Budget consideration
+
+As the device is already provided to us with some components, there should not be any expenses for the project. However, more components could be needed to ensure the functionalities of the device.
+
 ## Glossary
 
+- **Mountainous condition**: Mountainous condition refers to the weather conditions in mountainous areas. This includes snow, wind and low temperatures.
 - **GNSS**: Global Navigation Satellite System. It is the standard generic term for satellite navigation systems that provide autonomous geo-spatial positioning with global coverage.
 - **GSM**: Global System for Mobile Communications. It is a standard developed by the European Telecommunications Standards Institute to describe the protocols for second-generation digital cellular networks used by mobile devices such as mobile phones and tablets.
 - **NFC**: Near Field Communication. It is a set of communication protocols that enable two electronic devices, one of which is usually a portable device such as a smartphone, to establish communication by bringing them within 4 cm of each other.
-
-
-<!-- speak about mountaineous condition -->
-<!-- Buget consideration -->
-<!-- risks -->
