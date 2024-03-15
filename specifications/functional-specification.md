@@ -81,10 +81,12 @@ The following functionalities are what our team is responsible for. The function
 ### 3.1 Battery management
 
 The primary goal of the solution is to improve the battery life of the device. As of now, the battery can only last for three days, at a rate of 2 hours a day. Our goal is to increase the battery life to at least 7 days at a rate of 6 hours a day.
+The device is equipped with a battery that can be recharged via a USB-C cable. A notification should be sent to the users when the battery reaches 25%, 20%, 15%, 10% and 5% of its capacity. As soon as the user receives one of these notifications, he would have to unlock the device to prevent the device from staying in lock mode. If the battery reaches 0%, the device will be locked and the user will have to recharge it to unlock it.
+To ensure that the battery can last long enough, the battery should never be charged over 80% and should never be discharged under 20%.
 
 ### 3.2 Motion detection
 
-The device is equipped with a motion sensor that can detect translations and rotation around three axes. This feature is the most critical feature of the device. Our goal is to ensure that the device can detect any motion. Two types of shocks have to be detected:
+The device is equipped with a motion sensor that can detect translations and rotation around three axes. This feature is the most critical feature of the device. Our goal is to ensure that the device can detect any motion, whether it is a linear movement or a rotation. Two types of shocks have to be detected:
 
 - **Shocks**: In this case, the device should only produce a small sound
 - **Strong shocks**: In this case, the device should produce a loud sound and send a notification to the mobile application
@@ -103,6 +105,10 @@ The device should produce 3 light beeps when a normal shock is detected, and 5 l
 ### 3.5 Notifications
 
 The device should be able to send notifications to the mobile application when a motion is detected. The notification should be sent within 5 seconds of the strong shock being detected.
+These are the types of notifications:
+
+- **Battery notifications**: The device should send a notification to the mobile application when the battery reaches 25%, 20%, 15%, 10% and 5% of its capacity
+- **Motion notifications**: The device should send a notification to the mobile application when a strong shock is detected
 
 ### 3.6 GPS positioning
 
