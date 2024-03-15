@@ -134,7 +134,7 @@ The device should be secure enough to prevent malicious people from unlocking th
 
 ### 4.2 Budget consideration
 
-As the device is already provided to us with some components, there should not be any expenses for the project. However, more components could be needed to ensure the functionalities of the device.
+As the device is already provided to us with some components, there should not be any expenses for the project. However, more components could be needed to ensure the functionalities of the device. We reserve the right to recommend specific components if we feel it is necessary.
 
 ## Glossary
 
