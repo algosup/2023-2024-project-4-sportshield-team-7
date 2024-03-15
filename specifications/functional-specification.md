@@ -117,8 +117,8 @@ To communicate the GPS position, the device uses a GNSS module and a GSM module.
 
 ### 3.7 NFC
 
-The device should be able to communicate with the mobile application or a card using NFC. Our goal is to add this NFC feature to the device.
-The NFC feature will ease the use of the device by the user.
+The device should be able to communicate with the mobile application using NFC. Our goal is to add this NFC feature to the device.
+The NFC feature will ease the use of the device by the user. As of now, the user has to open the mobile application and unlock the device using the mobile application. With the NFC feature, the user will only have to tap the device with the mobile application open to unlock it.
 
 ### 3.8 Alarm management
 
@@ -128,6 +128,9 @@ Also, the device has to be able to send the GPS coordinates or notification whil
 ### 3.9 Security
 
 The device should be secure enough to prevent malicious people from unlocking the device. Our goal is to ensure that the device is secure enough to prevent any unauthorized access. For example, extra layers of authentication could be added to the device.
+
+- **Bluetooth**: We need to ensure that only the phone that is paired with the device can unlock it. To achieve this, we will check if the right password has been sent to the device. The locking and unlocking should happen if and only if the password is the correct one.
+- **NFC**: The NFC feature should be secure enough to prevent any unauthorized access. The NFC feature should only work with the mobile application that is paired with the device.
 
 ## 4. Risks and assumptions
 
