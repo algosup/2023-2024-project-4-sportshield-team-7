@@ -37,7 +37,7 @@ This document describes the functional specifications of SportShield. The team i
 | ---- | ---- |
 | Manech Laguens | Project Manager |
 | Malo Archimbaud | Program Manager |
-| Mattéo Leffin | Technical Lead |
+| Mattéo Lefin | Technical Lead |
 | Léo Chartier | Software Engineer |
 | Mathis Kakal | QA |
 | Laurent Bouquin | Technical Writer |
@@ -113,7 +113,15 @@ These are the types of notifications:
 ### 3.6 GPS positioning
 
 The device should be able to send its position to the mobile application. Our goal is to ensure that the device can send its position at any time.
-To communicate the GPS position, the device uses a GNSS module and a GSM module. The current GSM module only supports 2G networks. 2G networks are being phased out in some countries, so the GSM is only temporary.
+To communicate the GPS position, the device uses a GNSS module and a GSM module. The current GSM module only supports 2G networks. 2G networks are being phased out in some countries, so the GSM is only temporary. For the final product, at least a 3G module should be considered.
+The GPS coordinates should be sent to the server every 15 minutes and when a strong shock is detected in this format:
+  
+  ```json
+  {
+    "latitude": 48.8584,
+    "longitude": 2.2945
+  }
+  ```
 
 ### 3.7 NFC
 
@@ -122,8 +130,8 @@ The NFC feature will ease the use of the device by the user. As of now, the user
 
 ### 3.8 Alarm management
 
-The user should be able to stop the alarm before the end of a cycle. Our goal is to add this feature to the device.
-Also, the device has to be able to send the GPS coordinates or notification while the alarm is on.
+The user should be able to stop the alarm before the end of a cycle. Our goal is to add this feature to the device. The user would be able to stop the alarm in case of a false alarm.
+Also, the device has to be able to send the GPS coordinates or notification while the alarm is on. Both should be executed at the same time. This will allow the user to be notified immediately in the case of a theft and to locate the device at the same time.
 
 ### 3.9 Security
 
