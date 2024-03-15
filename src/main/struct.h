@@ -1,6 +1,6 @@
 struct myConfig {
   short int pin = 0;
   String Name = "\n";
-  bool isActivated = false;
+  bool isActivated = true;
   
 };
