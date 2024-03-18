@@ -46,6 +46,7 @@ This document describes the functional specifications of SportShield. The team i
 ### 1.1 Overview
 
 SportShield is a device that is designed to prevent ski equipment from being stolen. It is a small device that can be attached to the ski equipment and can be controlled using a mobile application, even though more ways to communicate with the device are planned. The device is designed to be small and lightweight so that it can be easily attached to the ski equipment without adding too much extra weight to the equipment. The device is also designed to be durable and weatherproof so that it can withstand the harsh weather conditions that are common in ski resorts.
+
 *A 3D render of the prototype of the device is shown below:*
 
 <div align = "center">
@@ -77,6 +78,7 @@ The following personas are the main users of the SportShield:
 ## 2. How SportShield works
 
 As of now, the device is equipped with a battery, a motion sensor, a buzzer[^2], a Bluetooth module, a GNSS[^3] module, an electromagnet and a GSM[^4] module. The lock consists of a Kevlar security cable that can be wrapped around the ski equipment to lock it. The cable is then locked thanks to a toothed wheel.
+
 *Diagram of a ratchet wheel:*
 
 <div align = "center">
@@ -107,7 +109,9 @@ To ensure that the battery can last long enough, the battery should never be cha
 
 ### 3.2 Motion detection
 
-The device is equipped with a motion sensor that can detect translations and rotations around three axes. This is called the degree of freedom. The device has 6 degrees of freedom, as shown in the following image.
+The device is equipped with a motion sensor that can detect translations and rotations around three axes. This is called the degree of freedom. The device has 6 degrees of freedom.
+
+*The 6 degrees of freedom:*
 
 <div align = "center">
 
