@@ -96,7 +96,7 @@ The shock detection should be accurate enough to not be activated by the harsh w
 
 ### 3.3 Unlock
 
-The device can be locked by a cable that can be wrapped around ski equipment. Our goal is to ensure that the device can be unlocked at any time using the mobile application. This cable is locked thanks a toothed wheel and is unlocked with the electromagnet. When the user asks for the cable to unlock, the electromagnet should be on only for 2 seconds. This short amount of time is enough to pull the cable out and it also saves battery.
+The device can be locked by a cable that can be wrapped around ski equipment. Our goal is to ensure that the device can be unlocked at any time using the mobile application. This cable is locked thanks to a toothed wheel and is unlocked with the electromagnet. When the user asks for the cable to unlock, the electromagnet should be on only for 2 seconds. This short amount of time is enough to pull the cable out and it also saves battery.
 
 ### 3.4 Alarm
 
