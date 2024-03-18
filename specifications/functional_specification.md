@@ -47,6 +47,7 @@ This document describes the functional specifications of SportShield. The team i
 
 SportShield is a device that is designed to prevent ski equipment from being stolen. It is a small device that can be attached to the ski equipment and can be controlled using a mobile application, even though more ways to communicate with the device are planned. The device is designed to be small and lightweight so that it can be easily attached to the ski equipment without adding too much extra weight to the equipment. The device is also designed to be durable and weatherproof so that it can withstand the harsh weather conditions that are common in ski resorts.
 It would look like this:
+
 ![SportShield](../images/Device.png)
 
 ### 1.2 Purpose
