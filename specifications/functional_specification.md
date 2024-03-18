@@ -70,7 +70,9 @@ The following personas are the main users of the SportShield:
 ## 2. How SportShield works
 
 As of now, the device is equipped with a battery, a motion sensor, a buzzer[^2], a Bluetooth module, a GNSS[^3] module, an electromagnet and a GSM[^4] module. The lock consists of a Kevlar security cable that can be wrapped around the ski equipment to lock it. The cable is then locked thanks to a toothed wheel.
+
 <img src="../images/rochet_wheel.png" alt="wheel" width = 200>
+
 As provided by the client, the device has two modes of operation:
 
 - **Sleep mode**: In this mode, the device is in a low-power state to save battery. The device sends GPS and battery information every 15 minutes, and this is the only time the device is active. The device enters Active mode if a motion is detected.
@@ -92,7 +94,9 @@ To ensure that the battery can last long enough, the battery should never be cha
 ### 3.2 Motion detection
 
 The device is equipped with a motion sensor that can detect translations and rotations around three axes. This is called the degree of freedom. The device has 6 degrees of freedom, as shown in the following image.
+
 <img src="../images/degrees_of_freedom.png" alt="freedom" width = 200>
+
 This feature is the most critical feature of the device. Our goal is to ensure that the device can detect any motion, whether it is a linear movement or a rotation. Two types of shocks have to be detected:
 
 - **Shocks**: In this case, the device should only produce a small sound.
@@ -111,7 +115,7 @@ The hardware provided is not enough to be able to test the electromagnet in good
 
 The device is equipped with a buzzer that can produce sound. The device should only produce sound when a motion is detected. Our goal is to ensure that the alarm can be heard and that the device can produce different kinds of alarms depending on the situation.
 The device should produce 3 light beeps when a normal shock is detected, and 5 long beeps when a strong shock is detected. The device produces the sound thanks to the buzzer. The buzzer can output a sound up to 120 dB.
-The sound of the alarm for a strong shock should be loud enough to be heard from 20 meters away, considering a person with a good level of audition. Restaurant can be considered a noisy environment, so the sound should be loud enough to be heard in this kind of environment.
+The sound of the alarm for a strong shock should be loud enough to be heard from 20 meters away, considering a person with a good level of audition. Restaurants can be considered a noisy environment, so the sound should be loud enough to be heard in this kind of environment.
 
 ### 3.5 Notifications
 
