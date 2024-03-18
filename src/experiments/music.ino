@@ -35,6 +35,18 @@ void setup_music() {
   digitalWrite(LED_BLUE, LOW);
   digitalWrite(LED_GREEN, HIGH);
 
+  music();
+
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_BLUE, HIGH);
+  digitalWrite(LED_GREEN, LOW);
+}
+
+void loop_music() {
+    // No loop
+}
+
+void music() {
   playNote(SIXTEENTH, NOTE_C4);
   playNote(SIXTEENTH, NOTE_D4);
   playNote(SIXTEENTH, NOTE_F4);
@@ -51,12 +63,4 @@ void setup_music() {
   playNote(DOTTED_EIGHTH, NOTE_F4);
   playNote(SIXTEENTH, NOTE_E4);
   playNote(EIGHTH, NOTE_D4);
-
-  digitalWrite(LED_RED, HIGH);
-  digitalWrite(LED_BLUE, HIGH);
-  digitalWrite(LED_GREEN, LOW);
-}
-
-void loop_music() {
-    // No loop
 }
