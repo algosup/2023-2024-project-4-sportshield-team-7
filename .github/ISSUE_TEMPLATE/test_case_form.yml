@@ -78,7 +78,7 @@ body:
       required: true
 
   - type: markdown
-  attributes:
+    attributes:
     value: |
       \| Step ID \| Step Description \| Step Date \| Expected Results \| Actual Results \| Pass / Fail \| Add. Notes\|
 
