@@ -3,7 +3,7 @@ name: Hello world Workflow
 on:
   push:
     branches:
-      - actionsTest
+      - actionsTests
   workflow_dispatch:
 
 jobs:
