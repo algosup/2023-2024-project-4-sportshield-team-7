@@ -79,8 +79,8 @@ body:
 
   - type: markdown
     attributes:
-    value: |
-      \| Step ID \| Step Description \| Step Date \| Expected Results \| Actual Results \| Pass / Fail \| Add. Notes\|
+      value: |
+        \| Step ID \| Step Description \| Step Date \| Expected Results \| Actual Results \| Pass / Fail \| Add. Notes\|
 
   - type: textarea
     id: notes
