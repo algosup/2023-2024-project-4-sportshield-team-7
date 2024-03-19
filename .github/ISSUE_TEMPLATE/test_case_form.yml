@@ -80,7 +80,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <details><summary><ins><em>Click to show template</em></ins></summary>
+        <details><summary><ins><em>Click to show template</em></ins></summary><br>
         
         \| Step ID \| Step Description \| Step Date \| Expected Results \| Actual Results \| Pass / Fail \| Add. Notes\|
         \|--------\|--------\|--------\|--------\|--------\|--------\|--------\|
