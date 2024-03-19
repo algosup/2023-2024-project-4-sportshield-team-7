@@ -3,6 +3,7 @@ description: Declares a test case (form variant).
 title: "[TESTING] [TEST_ID] TEST_NAME"
 labels: [test]
 assignees: [mathiskakal]
+project: [algosup/29]
 body:
   - type: input
     id: testcase-title
