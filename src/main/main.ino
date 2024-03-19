@@ -18,5 +18,5 @@ void setup(void) {
 
 void loop(void) {
   Serial.println(getMotionLevel());
-  delay(1000);
+  // delay(100);
 }

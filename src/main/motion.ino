@@ -14,14 +14,24 @@ void setupMotion(void) {
 
 float getAcceleration(void) {
   // Uses the Manhattan norm
+  Serial.print(abs(imu.readFloatAccelX()));
+  Serial.print(" ");
+  Serial.print(abs(imu.readFloatAccelY()));
+  Serial.print(" ");
+  Serial.print(abs(imu.readFloatAccelZ()));
+  Serial.print(" > ");
+  // TODO: Adapt gravity on all 3 axes
   return abs(imu.readFloatAccelX()) + \
          abs(imu.readFloatAccelY()) + \
-         abs(imu.readFloatAccelZ());
+         abs(imu.readFloatAccelZ()) + \
+         -1; // Ignore gravity (value of 1G)
 }
 
 Level getMotionLevel(void) {
   // Read the values
   float acceleration = getAcceleration();
+  Serial.print(acceleration);
+  Serial.print(" ");
   // TODO: Get angular acceleration
 
   // Check if it's above the threshold
