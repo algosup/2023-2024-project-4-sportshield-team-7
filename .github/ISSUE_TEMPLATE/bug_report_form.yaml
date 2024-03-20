@@ -79,6 +79,6 @@ body:
     id: possible-implementation
     attributes:
       label: Possible Implementation
-      description: Describe any suggestions for solving this issue.
+      placeholder: Describe any suggestions for solving this issue.
     validations:
       required: false
