@@ -38,6 +38,16 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: test-execution
+    attributes:
+      label: Test Execution
+      description: Specify if is to be run automatically or manually
+      options:
+        - label: Automatic
+        - label: Manual
+        - label: Both
+
   - type: textarea
     id: objective
     attributes:
