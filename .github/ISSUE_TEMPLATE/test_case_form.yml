@@ -57,6 +57,20 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: test-environment
+    attributes:
+      label: Test Environment
+      description: Pick the predefined environment from which the test should be run from.
+      options:
+        - School PC (Lenovo ThinkPad)
+        - School MacOS (MacBook Air M1)
+        - Testing server (Lenovo IdeaPad Slim)
+        - Other
+      default: 0
+    validations:
+      required: true
+
   - type: textarea
     id: dependencies
     attributes:
