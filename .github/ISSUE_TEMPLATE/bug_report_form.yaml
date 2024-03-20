@@ -42,10 +42,6 @@ body:
         \| 2 \| Cell \| Cell \| Cell \| Cell \| Cell \| Cell \|
         
         </details>
-        
-  - type: markdown
-    attributes:
-      value: "**Screenshots**\nIf applicable, add screenshots to help explain your problem."
       
   - type: textarea
     id: screenshots
