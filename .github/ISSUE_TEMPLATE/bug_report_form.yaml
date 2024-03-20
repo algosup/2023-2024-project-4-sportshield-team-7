@@ -58,7 +58,7 @@ body:
     attributes:
       value: "**Screenshots**\nIf applicable, add screenshots to help explain your problem."
       
-  - type: file
+  - type: textarea
     id: screenshots
     attributes:
       label: Screenshots
