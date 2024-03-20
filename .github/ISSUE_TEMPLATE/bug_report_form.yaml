@@ -51,12 +51,7 @@ body:
     id: screenshots
     attributes:
       label: Screenshots
-      description: If applicable, add screenshots to help explain your problem.
-      
-  - type: markdown
-    attributes:
-      value: "**Context (Environment in which the bug was produced):**"
-      
+      description: If applicable, add screenshots to help explain your problem.  
 
   - type: dropdown
     id: test-environment
