@@ -44,9 +44,9 @@ body:
       label: Test Execution
       description: Specify if is to be run automatically or manually
       options:
-        - label: Automatic
-        - label: Manual
-        - label: Both
+        - Automatic
+        - Manual
+        - Both
 
   - type: textarea
     id: objective
