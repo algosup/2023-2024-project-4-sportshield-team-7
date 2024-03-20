@@ -5,9 +5,6 @@ labels: bug
 assignees: mathiskakal
 projects: [algosup/29]
 body:
-  - type: markdown
-    attributes:
-      value: "**Expected behavior**\nA clear and concise description of what you expected to happen."
       
   - type: textarea
     id: expected-behavior
@@ -17,10 +14,6 @@ body:
     validations:
       required: true
       
-  - type: markdown
-    attributes:
-      value: "**Current Behavior**\nDescription of what is going on."
-      
   - type: textarea
     id: current-behavior
     attributes:
@@ -28,10 +21,6 @@ body:
       description: A detailed description of the current behavior.
     validations:
       required: true
-      
-  - type: markdown
-    attributes:
-      value: "**To Reproduce**\nSteps to reproduce the behavior:"
       
   - type: textarea
     id: steps-to-reproduce
@@ -68,33 +57,20 @@ body:
     attributes:
       value: "**Context (Environment in which the bug was produced):**"
       
-  - type: input
-    id: os
+
+  - type: dropdown
+    id: test-environment
     attributes:
-      label: Operating System
-      description: The operating system you observed the bug on, e.g., iOS.
+      label: Test Environment
+      description: Pick the predefined environment from which the test should be run from.
+      options:
+        - School PC (Lenovo ThinkPad)
+        - School MacOS (MacBook Air M1)
+        - Testing server (Lenovo IdeaPad Slim)
+        - Other
+      default: 0
     validations:
-      required: true
-      
-  - type: input
-    id: browser
-    attributes:
-      label: Browser
-      description: The browser in which you observed the bug, e.g., Chrome, Safari.
-    validations:
-      required: true
-      
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      description: The version of the browser/OS where the bug was observed, e.g., 22.
-    validations:
-      required: true
-      
-  - type: markdown
-    attributes:
-      value: "**Additional context / Description**\nAdd any other context about the problem here."
+      required: true 
       
   - type: textarea
     id: additional-context
@@ -103,10 +79,6 @@ body:
       description: Add any other context about the problem here.
     validations:
       required: false
-      
-  - type: markdown
-    attributes:
-      value: "**Possible Implementation**\nDescribe suggestions for solving this issue."
       
   - type: textarea
     id: possible-implementation
