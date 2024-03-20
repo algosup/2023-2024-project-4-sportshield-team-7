@@ -44,9 +44,9 @@ body:
       label: Test Execution
       description: Specify if is to be run automatically or manually
       options:
-        - label: Automatic
-        - label: Manual
-        - label: Both
+        - Automatic
+        - Manual
+        - Both
 
   - type: textarea
     id: objective
@@ -54,6 +54,20 @@ body:
       label: Objective
       description: Describe why the test is relevant.
       placeholder: The goal of this test is to ensure the product meets security requirements.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: test-environment
+    attributes:
+      label: Test Environment
+      description: Pick the predefined environment from which the test should be run from.
+      options:
+        - School PC (Lenovo ThinkPad)
+        - School MacOS (MacBook Air M1)
+        - Testing server (Lenovo IdeaPad Slim)
+        - Other
+      default: 0
     validations:
       required: true
 
