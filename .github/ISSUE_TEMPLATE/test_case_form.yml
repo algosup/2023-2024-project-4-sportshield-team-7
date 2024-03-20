@@ -23,15 +23,16 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
+  - type: dropdown
     id: test-execution
     attributes:
-      - label: Test Execution
-        description: Specify if the test was run automatically or manually
-    options:
-      - label: Automatic
-        label: Manual
-        label: Both
+      label: Test Execution
+      description: Specify if the test was run automatically or manually
+      options:
+        - label: Automatic
+        - label: Manual
+        - label: Both
+
 
   - type: textarea
     id: objective
