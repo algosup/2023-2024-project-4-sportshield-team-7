@@ -27,12 +27,11 @@ body:
     id: test-execution
     attributes:
       label: Test Execution
-      description: Specify if the test was run automatically or manually
+      description: Specify if is to be run automatically or manually
       options:
         - label: Automatic
         - label: Manual
         - label: Both
-
 
   - type: textarea
     id: objective
