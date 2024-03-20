@@ -10,7 +10,7 @@ body:
     id: expected-behavior
     attributes:
       label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
+      placeholder: A clear and concise description of what you expected to happen.
     validations:
       required: true
       
@@ -18,7 +18,7 @@ body:
     id: current-behavior
     attributes:
       label: Current Behavior
-      description: A detailed description of the current behavior.
+      placeholder: A detailed description of the current behavior.
     validations:
       required: true
       
@@ -26,7 +26,7 @@ body:
     id: steps-to-reproduce
     attributes:
       label: Steps to Reproduce
-      description: "Please provide steps to reproduce the issue:\n1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error"
+      placeholder: "Please provide steps to reproduce the issue:\n1. Go to '...'\n2. Click on '...'\n3. Scroll down to '...'\n4. See error"
     validations:
       required: true
       
@@ -51,7 +51,7 @@ body:
     id: screenshots
     attributes:
       label: Screenshots
-      description: If applicable, add screenshots to help explain your problem.  
+      placeholder: If applicable, add screenshots to help explain your problem.  
 
   - type: dropdown
     id: test-environment
@@ -71,7 +71,7 @@ body:
     id: additional-context
     attributes:
       label: Additional Context / Description
-      description: Add any other context about the problem here.
+      placeholder: Add any other context about the problem here.
     validations:
       required: false
       
