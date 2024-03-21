@@ -6,6 +6,9 @@ const unsigned int LOW_LEVEL_FREQUENCIES[] = { 440, 0, 440, 0, 0 };
 const unsigned int LOW_LEVEL_REPEAT = 2;
 const unsigned long LOW_LEVEL_DURATION = 250;
 
+const unsigned int HIGH_LEVEL_REPEAT = 5;
+const unsigned long HIGH_LEVEL_DURATION = 1000;
+
 Level buzzerLevel = off;
 int startBuzzer;
 
@@ -14,7 +17,7 @@ void setupBuzzer(void) {
 }
 
 void checkBuzzer(void) {
-  // TODO: Complete
+  // TODO: Complete in a non-blocking way
   int deltaTime = millis() - startBuzzer;
 
   switch (buzzerLevel) {
@@ -44,7 +47,12 @@ bool playLowTone(void) {
 }
 
 bool playHighTone(void) {
-  
+  for (int i = 0; i < HIGH_LEVEL_REPEAT; i++) {
+    digitalWrite(BUZZER_PIN, HIGH);
+    delay(HIGH_LEVEL_DURATION);
+    digitalWrite(BUZZER_PIN, LOW);
+    delay(HIGH_LEVEL_DURATION / 2);
+  }
 }
 
 void stopBuzzer(void) {

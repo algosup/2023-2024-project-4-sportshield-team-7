@@ -15,6 +15,8 @@ void setup(void) {
   setupBuzzer();
 
   playLowTone();
+  delay(5000);
+  playHighTone();
 
   Serial.println("Setup done");
   setLEDs(false, true, false);
