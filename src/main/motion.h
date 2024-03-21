@@ -1,3 +1,6 @@
+#ifndef SPORTSHIELD_
+#define SPORTSHIELD_
+
 #include <LSM6DS3.h>
 
 enum Level { off, low, high };
@@ -15,3 +18,5 @@ void setupMotion(void);
 float getAcceleration(void);
 float getAngularVelocity(void);
 Level getMotionLevel(void);
+
+#endif

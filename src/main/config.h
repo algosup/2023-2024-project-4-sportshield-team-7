@@ -1,0 +1,6 @@
+#ifndef SPORTSHIELD_CONFIG
+#define SPORTSHIELD_CONFIG
+
+
+
+#endif
