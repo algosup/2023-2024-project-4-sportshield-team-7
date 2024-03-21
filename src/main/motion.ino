@@ -2,6 +2,8 @@
 
 #include <LSM6DS3.h>
 
+#include "utils.h"
+
 // Using a time and keeping track of the old values to calculate velocity
 float oldRotationX, oldRotationY, oldRotationZ;
 unsigned long oldTime;
@@ -82,7 +84,7 @@ Level getMotionLevel(void) {
     acceleration >= ACCELERATION_THRESHOLD_HIGH ||
     angular_velocity >= ANGULAR_VELOCITY_THRESHOLD_HIGH
   ) {
-    return high;
+    return high_level;
   }
-  return low;
+  return low_level;
 }

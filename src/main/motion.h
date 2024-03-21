@@ -3,7 +3,7 @@
 
 #include <LSM6DS3.h>
 
-enum Level { off, low, high };
+#include "utils.h"
 
 // The measurement device
 extern LSM6DS3 imu;
