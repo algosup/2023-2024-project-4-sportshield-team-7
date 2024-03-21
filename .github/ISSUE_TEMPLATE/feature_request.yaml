@@ -80,13 +80,3 @@ body:
       placeholder: If yes, state where. E.g. Github Issues, 
     validations:
       required: true
-
-
-
-name: Test Case Form
-description: Declares a feature request.
-title: "[FEATURE] FEATURE_NAME"
-labels: [test]
-assignees: [mathiskakal]
-projects: [algosup/32]
-body:
