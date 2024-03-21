@@ -8,7 +8,7 @@
 |-------|---------|----|------------------------|
 |   1   |Mattéo LEFIN| 14/03/2024 | Added Table of content and introduction. Added Project goals and scopes|
 |2|Mattéo LEFIN| 15/03/2024|Finish Project Organisation|
-
+|3|Mattéo LEFIN|21/03/2024|Added an hardware description, risks, project scope and started technical specification. |
 ---
 
 <details open>
@@ -20,19 +20,27 @@
 - [***I. Introduction***](#i-introduction)
   - [1. Definition of a technical specification](#1-definition-of-a-technical-specification)
   - [2. Project Overview](#2-Project-Overview)
-  - [3. Glossary](#3-Glossary)
+  - [3. Functional specification](#3-functional-specification)
+  - [4. Glossary](#4-glossary)
 - [***II. Project goals and scopes***](#ii-project-goals-and-scopes)
   - [1. Objectives](#1-objectives)
-  - [2. Project scope](#2-project-scope)
-  - [3. ]()
-  - []()
+  - [2. Out of scope](#2-out-of-scope)
 - [***III. Project organisation***](#iii-project-organisation)
   - [1. Work environnement](#1-work-environnement)
   - [2. Naming convention](#2-naming-convention)
   - [3. File list](#3-file-list)
   - [4. File sorting](#4-file-sorting)
 - [***IV. Project risks***](#iv-project-risks)
+  - [1. Communication risks](#1-communication-risks)
+  - [2. Potential risks](#2-potential-risks)
+  - [3. Dealing with risks](#3-dealing-with-risks)
 - ***V Technical specifications***
+  - [1. Upgrading battery](#1-upgrading-battery)
+  - [2. Bluetooth communication](#2-bluetooth-communication)
+  - [3. NFC communication](#3-nfc-communication)
+  - [4. Sensor](#4-sensor)
+  - [5. Electromagnet](#5-electromagnet)
+  - [6. Test Plan](#6-test-plan)
 - ***VI***
 - ***Document approval***
 
@@ -54,13 +62,17 @@ The objective of the Technical Specifications is to translate the Functional Req
 ### 2. Project Overview
 
 This Project has for purpose of creating a security system for sports equipment such as snowboards and surfboards using an alarm system similar to car antithief protection, controlled with the owner's phone using an NFC system. 
-Our part in this project is mainly maintenance of the battery and making the system work with an NFC system
+Our part in this project is mainly maintenance of the battery and making the system work with an NFC system.
 
-### 3. Glossary
+### 3. Functional specification
+
+This document is a more detailed version of the functional specification, adding more explanations about our project! You can access this document right [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/specifications/functional_specification.md).
+### 4. Glossary
 
 |Word|Definition|
 |----|----------|
-|    |          |
+| NFC system   |    NFC or Near Field Communication is a communication system with a high frequency but a short range, it's comonly used for contactless system like train contactless train cards    |
+|GPS| GPS or Global Positioning System is a device that allow the user locate himself, a place or an object by satellite|
 
 </details>
 
@@ -75,13 +87,16 @@ Our part in this project is mainly maintenance of the battery and making the sys
 ### 1. Objectives
 
 The Objective of our participation in this project is to develop the software so it will detect unusual movement when the device is activated.
-we also have to find a way to make the battery last as much as possible and make the program compatible with NFC system.
+we also have to find a way to make the battery last as much as possible and make the program compatible with the [**NFC system**](#3-glossary).
 
-### 2. Project Scope
+### 2. Out of scope
 
-||||
-|----|----|----|
-|    |    |    |
+The method used to update the software is out of the scope of what our team is responsible for.
+The mobile application and the server are out of the scope of what our team is responsible for.
+The hardware security and integrity are out of the scope of what our team is responsible for.
+The API to send and receive notifications is out of the scope of what our team is responsible for.
+The hardware design is out of the scope of what our team is responsible for.
+
 </details>
 
 ---
@@ -104,14 +119,14 @@ we also have to find a way to make the battery last as much as possible and make
 
 |Piece name|description|Image|
 |----------|-----------|-----|
-|Xiao BLE Sense nrf52840|||
-|GNSS PA1010D|||
-|GSM/2G SIM800L Module|||
-|Arduino card, model SIM800L|||
-|Electromagnet|||
-|Lithium-Polymer battery | Stocking energy for the system to work||
-|NFC antenna |||
-|Piezoelectric buzzer|||
+|Xiao BLE Sense nrf52840|Microcontroller used for bluetooth applications|![Image of a Xiao BLE Sense nrf52840](/images/xiao_BLE.jpg)|
+|GNSS PA1010D|A [**GPS**](#4-glossary) to locate where the device is.|![Image of a GNSS PA1010D](/images/GNSS.jpg)|
+|GSM/2G SIM800L Module|Allow internet connection in 2G to the device|![Image of a GSM/2G SIM800L Module](/images/2g_Module.jpg)|
+|Arduino card, model SIM800L|The mother Board of the device|![Image of a Arduino card, model SIM800L](/images/arduino_SIM800L.jpg)|
+|Electromagnet|a soft metal core made into a magnet by the passage of electric current through a coil surrounding it.|![Image of a Electromagnet](/images/Magnet.jpg)|
+|Lithium-Polymer battery | Stocking energy for the system to work|![Image of a Lithium-Polymer battery](/images/lithium_battery.jpg)|
+|NFC antenna |An antenna that send short range signal to an NFC chip (here a componnent in a smartphone) allowing communication between two devices.|![Image of a NFC antenna](/images/NFC_Antenna.png)|
+|Piezoelectric buzzer|An electronic device that can prouduce a 120 Db sound|![Image of a Piezoelectric buzzer](/images/Buzzer.jpg)|
 
 
 ### 2. Naming convention
@@ -172,11 +187,17 @@ To better Organise our Project we decided to pick some naming conventions.
 
 ### 1. Communication risks
 
+To ensure that there's no communication issue between our team and our stakeholders we send e-mails when we need information.
+
 ### 2. Potential risks
+
+There's always a potential risks that could appear 
+
+We had an issue with the hardware given by the client where much of the equipment is malfunctioning like the module SIM and contact problem between the Arduino card and module SIM.
 
 ### 3. Dealing with risks
 
-
+To deal with those risks we principally analyzed the potential risk and troubleshoot it before we had to firefight and create a mess in our schedules.
 </details>
 
 ---
@@ -186,6 +207,26 @@ To better Organise our Project we decided to pick some naming conventions.
 <summary>Technical specification</summary>
 
 ## V. Technical specification
+
+### 1. Upgrading battery
+
+we will find a way to upgrade the lifespan of a battery.
+
+### 2. Bluetooth communication
+
+We will develop the communication between the device and the application on the users' smartphone.
+
+### 3. NFC communication
+
+### 4. Sensor
+
+We will adjust the movement detection registered by the sensor to reduce the risk of false alarms. 
+
+### 5. Electromagnet
+
+### 6. Test plan
+
+we prepared a test strategy to find possible errors and reduce the risk of a firefight at the end of the project. For this, we are using a test plan that you can access right [here]().
 
 </details>
 
