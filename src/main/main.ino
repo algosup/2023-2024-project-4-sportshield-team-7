@@ -14,6 +14,8 @@ void setup(void) {
   setupMotion();
   setupBuzzer();
 
+  playLowTone();
+
   Serial.println("Setup done");
   setLEDs(false, true, false);
 }
