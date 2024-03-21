@@ -5,6 +5,7 @@ labels: [test]
 assignees: [mathiskakal]
 projects: [algosup/29]
 body:
+
   - type: input
     id: testcase-title
     attributes:
@@ -13,7 +14,6 @@ body:
       placeholder: e.g., Code Security Check
     validations:
       required: true
-
 
   - type: dropdown
     id: test-status
