@@ -1,0 +1,92 @@
+name: Test Case Form
+description: Declares a feature request.
+title: "[FEATURE] FEATURE_NAME"
+labels: [test]
+assignees: [mathiskakal]
+projects: [algosup/32]
+body:
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Describe your problem
+      description: 
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution-description
+    attributes:
+      label: Potential Solution
+      description: 
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative-description
+    attributes:
+      label: Potential alternative
+      description: 
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: 
+      placeholder: Add any other context or screenshots about the feature request here.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: perceived-priority
+    attributes:
+      label: Perceived Priority
+      description: Specify if is to be run automatically or manually
+      options:
+        - Trivial
+        - Low
+        - Medium
+        - High
+        - Critical
+
+  - type: textarea
+    id: expected-impact
+    attributes:
+      label: Expected Impact
+      description: 
+      placeholder: Describe the expected impact of the feature. E.g. how many users will benefit from it, or how will it improve the efficiency or usability of the project?
+    validations:
+      required: true
+
+  - type: textarea
+    id: possible-drawbacks
+    attributes:
+      label: Possible Drawbacks
+      description: 
+      placeholder: Describe potential downsides or drawbacks of implementing the feature?
+    validations:
+      required: true
+
+  - type: textarea
+    id: already-discussed
+    attributes:
+      label: Has the feature already been discussed elsewhere?
+      description: 
+      placeholder: If yes, state where. E.g. Github Issues, 
+    validations:
+      required: true
+
+
+
+name: Test Case Form
+description: Declares a feature request.
+title: "[FEATURE] FEATURE_NAME"
+labels: [test]
+assignees: [mathiskakal]
+projects: [algosup/32]
+body:
