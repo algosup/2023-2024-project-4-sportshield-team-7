@@ -1,4 +1,4 @@
-name: Test Case Form
+name: Feature Request form
 description: Declares a feature request.
 title: "[FEATURE] FEATURE_NAME"
 labels: [test]
