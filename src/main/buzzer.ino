@@ -32,6 +32,7 @@ void checkBuzzer(void) {
         stopBuzzer();
         break;
       }
+      Serial.println("LOW"); // TEMP
       frequency = LOW_LEVEL_FREQUENCIES[index % length];
       if (frequency) {
         tone(BUZZER_PIN, frequency);
@@ -47,13 +48,14 @@ void checkBuzzer(void) {
         stopBuzzer();
         break;
       }
+      Serial.println("HIGH"); // TEMP
       digitalWrite(BUZZER_PIN, index % 3 == 2 ? LOW : HIGH);
       break;
   }
 }
 
 bool playLowTone(void) {
-  if (buzzerLevel == low_level) {
+  if (buzzerLevel != off) {
     return false;
   }
   stopBuzzer();

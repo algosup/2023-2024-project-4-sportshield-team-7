@@ -22,6 +22,17 @@ void setup(void) {
 }
 
 void loop(void) {
-  checkBuzzer();
+  Level motionLevel = getMotionLevel();
+  Serial.println(motionLevel);
+
+  // Buzzer
+  if (motionLevel == low_level) {
+    playLowTone();
+  } else if (motionLevel == high_level) {
+    playHighTone();
+  } else {
+    checkBuzzer();
+  }
+
   delay(50);
 }
