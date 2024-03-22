@@ -16,18 +16,16 @@ void clearLEDs(void) {
   setLEDs(false, false, false);
 }
 
-char Conversion(unsigned short int data) {
-  char mdphexadecimal[5];
-  sprintf(mdphexadecimal, "%04X", data);
+char passwordConversion(unsigned short int data) {
+  char passwordHex[5];
+  sprintf(passwordHex, "%04X", data);
 
   for (int i = 0; i < 2; ++i) {
-    char temp = mdphexadecimal[i];
-    mdphexadecimal[i] = mdphexadecimal[2 + i];
-    mdphexadecimal[2 + i] = temp;
+    char temp = passwordHex[i];
+    passwordHex[i] = passwordHex[2 + i];
+    passwordHex[2 + i] = temp;
   }
-  //Serial.println("Mot de passe : " + String(valeur) + " ");  //used to see the value in decimal
-  Serial.print("Written password  = ");
-  Serial.println(mdphexadecimal);
+  Serial.println(passwordHex);
 }
 
 String convertDMMtoDD(String dmmCoordinates) {
