@@ -14,15 +14,14 @@ void setup(void) {
   setupMotion();
   setupBuzzer();
 
-  playLowTone();
-  delay(5000);
-  playHighTone();
+  // playLowTone();
+  // playHighTone();
 
   Serial.println("Setup done");
   setLEDs(false, true, false);
 }
 
 void loop(void) {
-  // Serial.println(getMotionLevel());
-  // delay(100);
+  checkBuzzer();
+  delay(50);
 }

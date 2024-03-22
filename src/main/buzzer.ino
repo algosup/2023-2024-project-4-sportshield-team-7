@@ -2,12 +2,12 @@
 
 #include "utils.h"
 
-const unsigned int LOW_LEVEL_FREQUENCIES[] = { 440, 0, 440, 0, 0 };
-const unsigned int LOW_LEVEL_REPEAT = 2;
-const unsigned long LOW_LEVEL_DURATION = 250;
+const unsigned int LOW_LEVEL_FREQUENCIES[] = {440, 0, 440, 0, 0}; // 0 is no sound
+const unsigned int LOW_LEVEL_REPEAT = 2; // How many times to repeat the sequence
+const unsigned long LOW_LEVEL_DURATION = 250; // The duration of each note in mn
 
-const unsigned int HIGH_LEVEL_REPEAT = 5;
-const unsigned long HIGH_LEVEL_DURATION = 1000;
+const unsigned int HIGH_LEVEL_REPEAT = 5; // How many times to repeat the sequence
+const unsigned long HIGH_LEVEL_DURATION = 500; // Half a bip in ms (bips twice as long as silences)
 
 Level buzzerLevel = off;
 int startBuzzer;
@@ -17,42 +17,61 @@ void setupBuzzer(void) {
 }
 
 void checkBuzzer(void) {
-  // TODO: Complete in a non-blocking way
   int deltaTime = millis() - startBuzzer;
+  int index, length;
+  unsigned int frequency;
 
   switch (buzzerLevel) {
     case off:
       break;
 
     case low_level:
-      break;
-
-    case high_level:
-      break;
-  }
-}
-
-bool playLowTone(void) {
-  for (int i = 0; i < LOW_LEVEL_REPEAT; i++) {
-    for (unsigned int frequency : LOW_LEVEL_FREQUENCIES) {
+      index = deltaTime / LOW_LEVEL_DURATION;
+      length = sizeof(LOW_LEVEL_FREQUENCIES) / sizeof(unsigned int);
+      if (index >= length * LOW_LEVEL_REPEAT) {
+        stopBuzzer();
+        break;
+      }
+      frequency = LOW_LEVEL_FREQUENCIES[index % length];
       if (frequency) {
         tone(BUZZER_PIN, frequency);
       } else {
         noTone(BUZZER_PIN);
         digitalWrite(BUZZER_PIN, LOW);
       }
-      delay(LOW_LEVEL_DURATION);
-    }
+      break;
+
+    case high_level:
+      index = deltaTime / HIGH_LEVEL_DURATION;
+      if (index >= 3 * HIGH_LEVEL_REPEAT) {
+        stopBuzzer();
+        break;
+      }
+      digitalWrite(BUZZER_PIN, index % 3 == 2 ? LOW : HIGH);
+      break;
   }
 }
 
-bool playHighTone(void) {
-  for (int i = 0; i < HIGH_LEVEL_REPEAT; i++) {
-    digitalWrite(BUZZER_PIN, HIGH);
-    delay(HIGH_LEVEL_DURATION);
-    digitalWrite(BUZZER_PIN, LOW);
-    delay(HIGH_LEVEL_DURATION / 2);
+bool playLowTone(void) {
+  if (buzzerLevel == low_level) {
+    return false;
   }
+  stopBuzzer();
+  buzzerLevel = low_level;
+  startBuzzer = millis();
+  checkBuzzer();
+  return true;
+}
+
+bool playHighTone(void) {
+  if (buzzerLevel == high_level) {
+    return false;
+  }
+  stopBuzzer();
+  buzzerLevel = high_level;
+  startBuzzer = millis();
+  checkBuzzer();
+  return true;
 }
 
 void stopBuzzer(void) {
