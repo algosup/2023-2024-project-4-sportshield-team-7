@@ -1,3 +1,4 @@
+#include "bluetooth.h"
 #include "buzzer.h"
 #include "motion.h"
 #include "utils.h"
@@ -13,9 +14,10 @@ void setup(void) {
   Serial.println("Setup");
   setupMotion();
   setupBuzzer();
+  setupBluetooth();
 
   Serial.println("Setup done");
-  setLEDs(false, true, false);
+setLEDs(false, true, false);
 }
 
 void loop(void) {
@@ -29,6 +31,8 @@ void loop(void) {
   } else {
     checkBuzzer();
   }
+
+  runBluetooth();
 
   delay(50);
 }
