@@ -1,3 +1,4 @@
+#include "buzzer.h"
 #include "motion.h"
 #include "utils.h"
 
@@ -11,12 +12,23 @@ void setup(void) {
   
   Serial.println("Setup");
   setupMotion();
+  setupBuzzer();
 
   Serial.println("Setup done");
   setLEDs(false, true, false);
 }
 
 void loop(void) {
-  Serial.println(getMotionLevel());
-  // delay(100);
+  Level motionLevel = getMotionLevel();
+
+  // Buzzer
+  if (motionLevel == low_level) {
+    playLowTone();
+  } else if (motionLevel == high_level) {
+    playHighTone();
+  } else {
+    checkBuzzer();
+  }
+
+  delay(50);
 }

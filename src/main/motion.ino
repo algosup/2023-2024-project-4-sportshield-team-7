@@ -2,6 +2,8 @@
 
 #include <LSM6DS3.h>
 
+#include "utils.h"
+
 // Using a time and keeping track of the old values to calculate velocity
 float oldRotationX, oldRotationY, oldRotationZ;
 unsigned long oldTime;
@@ -17,13 +19,6 @@ void setupMotion(void) {
 }
 
 float getAcceleration(void) {
-  Serial.print(abs(imu.readFloatAccelX()));
-  Serial.print(" ");
-  Serial.print(abs(imu.readFloatAccelY()));
-  Serial.print(" ");
-  Serial.print(abs(imu.readFloatAccelZ()));
-  Serial.print(" | ");
-
   // Uses the Manhattan norm
   // TODO: Adapt gravity on all 3 axes
   return abs(imu.readFloatAccelX()) +
@@ -38,13 +33,6 @@ float getAngularVelocity(void) {
   float gyroX = imu.readFloatGyroX();
   float gyroY = imu.readFloatGyroY();
   float gyroZ = imu.readFloatGyroZ();
-  
-  Serial.print(abs(gyroX));
-  Serial.print(" ");
-  Serial.print(abs(gyroY));
-  Serial.print(" ");
-  Serial.print(abs(gyroZ));
-  Serial.print(" | ");
 
   // w = dphi / dt = (phi(t) - phi(t - dt)) / dt
   float value = abs(
@@ -65,10 +53,6 @@ Level getMotionLevel(void) {
   // Read the values
   float acceleration = getAcceleration();
   float angular_velocity = getAngularVelocity();
-  Serial.print(acceleration);
-  Serial.print(" ");
-  Serial.print(angular_velocity);
-  Serial.print(" ");
   // TODO: Get angular acceleration
 
   // Check if it's above the threshold
@@ -82,7 +66,7 @@ Level getMotionLevel(void) {
     acceleration >= ACCELERATION_THRESHOLD_HIGH ||
     angular_velocity >= ANGULAR_VELOCITY_THRESHOLD_HIGH
   ) {
-    return high;
+    return high_level;
   }
-  return low;
+  return low_level;
 }
