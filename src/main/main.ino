@@ -14,16 +14,12 @@ void setup(void) {
   setupMotion();
   setupBuzzer();
 
-  // playLowTone();
-  // playHighTone();
-
   Serial.println("Setup done");
   setLEDs(false, true, false);
 }
 
 void loop(void) {
   Level motionLevel = getMotionLevel();
-  Serial.println(motionLevel);
 
   // Buzzer
   if (motionLevel == low_level) {
