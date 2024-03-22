@@ -78,32 +78,23 @@ void onDisconnect(BLEDevice central) {
 }
 
 void onSetPassword(BLEDevice central, BLECharacteristic characteristic) {
-  short int value = PasswordCharacteristic.value();
-  passwordConversion(value);
-  isAuthenticated = (value == EXPECTED_PASSWORD);
+  isAuthenticated = isAuthenticated || PasswordCharacteristic.value() == EXPECTED_PASSWORD;
 }
 
 void onSetName(BLEDevice central, BLECharacteristic characteristic) {
   if (isAuthenticated) {
     username = NameCharacteristic.value();
-  } else {
-    NameCharacteristic.writeValue("\n");
   }
 }
 
 void onGetName(BLEDevice central, BLECharacteristic characteristic) {
-  if (isAuthenticated) {
-    NameCharacteristic.writeValue(username);
-  } else {
-    NameCharacteristic.writeValue("\n");
-  }
+  NameCharacteristic.writeValue(isAuthenticated ? username : "\n");
 }
 
 void onSetActivation(BLEDevice central, BLECharacteristic characteristic) {
   // TODO
   if (isAuthenticated) {
-    isActivated = ActivationCharacteristic.value();
-    // if (isActivated != 0) {
+    // if (ActivationCharacteristic.value()) {
     //   digitalWrite(SIM800_DTR_PIN, LOW);  // put in normal mode
     //   delay(100);
     //   sim800l->setPowerMode(NORMAL);  // set normal functionnality mode
@@ -111,8 +102,6 @@ void onSetActivation(BLEDevice central, BLECharacteristic characteristic) {
     //   sim800l->setPowerMode(MINIMUM);      // set minimum functionnality mode
     //   digitalWrite(SIM800_DTR_PIN, HIGH);  // put in sleep mode
     // }
-  } else {
-    ActivationCharacteristic.writeValue(isActivated);
   }
 }
 

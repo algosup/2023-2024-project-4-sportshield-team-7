@@ -16,18 +16,6 @@ void clearLEDs(void) {
   setLEDs(false, false, false);
 }
 
-char passwordConversion(unsigned short int data) {
-  char passwordHex[5];
-  sprintf(passwordHex, "%04X", data);
-
-  for (int i = 0; i < 2; ++i) {
-    char temp = passwordHex[i];
-    passwordHex[i] = passwordHex[2 + i];
-    passwordHex[2 + i] = temp;
-  }
-  Serial.println(passwordHex);
-}
-
 String convertDMMtoDD(String dmmCoordinates) {
   int degrees;
   float minutes;
