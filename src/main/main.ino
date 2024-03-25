@@ -16,9 +16,10 @@ void setup(void) {
   setupBuzzer();
   setupBluetooth();
   setupPower();
+  setupGPS();
 
   Serial.println("Setup done");
-setLEDs(false, true, false);
+  setLEDs(false, true, false);
 }
 
 void loop(void) {
@@ -34,6 +35,8 @@ void loop(void) {
   }
 
   runBluetooth();
+
+  updateGPS();
 
   delay(50);
 }
