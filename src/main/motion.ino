@@ -1,4 +1,5 @@
 // https://github.com/Seeed-Studio/Seeed_Arduino_LSM6DS3/blob/master/examples/IMU_Capture/IMU_Capture.ino
+#include "motion.h"
 
 #include <LSM6DS3.h>
 
