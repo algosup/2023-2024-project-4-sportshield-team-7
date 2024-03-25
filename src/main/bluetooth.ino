@@ -1,6 +1,7 @@
 #include "bluetooth.h"
 
 #include <ArduinoBLE.h>
+#include "sim.h"
 
 const int EXPECTED_PASSWORD = 13330;
 
@@ -88,20 +89,16 @@ void onSetName(BLEDevice central, BLECharacteristic characteristic) {
 }
 
 void onGetName(BLEDevice central, BLECharacteristic characteristic) {
-  NameCharacteristic.writeValue(isAuthenticated ? username : "\n");
+  NameCharacteristic.writeValue(isAuthenticated ? username : DEFAULT_NAME);
 }
 
 void onSetActivation(BLEDevice central, BLECharacteristic characteristic) {
-  // TODO
   if (isAuthenticated) {
-    // if (ActivationCharacteristic.value()) {
-    //   digitalWrite(SIM800_DTR_PIN, LOW);  // put in normal mode
-    //   delay(100);
-    //   sim800l->setPowerMode(NORMAL);  // set normal functionnality mode
-    // } else {
-    //   sim800l->setPowerMode(MINIMUM);      // set minimum functionnality mode
-    //   digitalWrite(SIM800_DTR_PIN, HIGH);  // put in sleep mode
-    // }
+    if (isActivated) {
+      enableSIM();
+    } else {
+      disableSIM();
+    }
   }
 }
 
@@ -110,11 +107,11 @@ void onGetActivation(BLEDevice central, BLECharacteristic characteristic) {
 }
 
 void onSetUnlock(BLEDevice central, BLECharacteristic characteristic) {
-  // TODO
-  // if (isAuthenticated) {
-  //   // Activate electromagnet
-  //   digitalWrite(PIN_ELECTROMAGNET, HIGH);
-  //   delay(DURATION_ELECTROMAGNET);
-  //   digitalWrite(PIN_ELECTROMAGNET, LOW);
-  // }
+  if (isAuthenticated) {
+    // TODO: Non-blocking
+    // Activate electromagnet
+    digitalWrite(PIN_ELECTROMAGNET, HIGH);
+    delay(DURATION_ELECTROMAGNET);
+    digitalWrite(PIN_ELECTROMAGNET, LOW);
+  }
 }

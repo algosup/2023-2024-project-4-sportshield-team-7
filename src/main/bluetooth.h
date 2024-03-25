@@ -7,6 +7,9 @@ String username = "\n";
 bool isActivated = false;
 bool isAuthenticated = false;
 
+const char* DEFAULT_NAME = "\n";
+
+const uint_8 PIN_ELECTROMAGNET = D3;
 const unsigned long DURATION_ELECTROMAGNET = 1000;
 
 const char* DEVICE_NAME = "SportShield Team 7";
