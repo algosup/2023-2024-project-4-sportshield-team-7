@@ -72,8 +72,8 @@ A Technical Specifications document contains more actionable/[**low-level data**
 
 |Word|Definition|
 |----|----------|
-|low-level data||
-|Bluetooth system||
+|low-level data|Low-level describes more specific individual components of a systematic operation, focusing on the details of rudimentary micro functions rather than macro, complex processes.|
+|Bluetooth system| Bluetooth is a telecommunications industry specification that describes how mobile devices, computers and other devices can easily communicate with each other using a short-range wireless connection. |
 | NFC system   |    NFC or Near Field Communication is a communication system with a high frequency but a short range, it's comonly used for contactless system like train contactless train cards.    |
 |GPS| GPS or Global Positioning System is a device that allow the user locate himself, a place or an object by satellite.|
 |IDE|A software application that helps programmers effectively develop software code.|
