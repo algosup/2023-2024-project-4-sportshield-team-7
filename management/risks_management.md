@@ -25,9 +25,15 @@ This document covers the risks and the corresponding mitigation strategies for t
 **Mitigations:** Ensure strong communication among the team to permit an optimal flow of information and updates. This will facilitate the redistribution of tasks in case of unexpected team member absences.
 
 
-### 5. Inadequate Risk Management: 
+### 5. Inadequate risk management: 
 **Risks:** Failure to identify and mitigate project risks effectively, could lead to unexpected issues, delays or failures during the project. 
-**Mitigations:** Clearly documented procedures  
+
+**Mitigations:** Clearly documented procedures to identify and manage project risks. Establish clear channels of communication to report any risk and provide regular updates about identified risks.
+
+
+
+
+
 
 
 
