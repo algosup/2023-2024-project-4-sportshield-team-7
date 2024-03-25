@@ -1,7 +1,7 @@
 <div align="center">
 
-  ![image](https://img.shields.io/badge/Made_In-Vierzon-green)
-  ![image](https://img.shields.io/badge/Made_At-ALGOSUP-blue)
+  <a href="https://g.co/kgs/Xab1NH1">![image](https://img.shields.io/badge/Made_In-Vierzon-green)</a>
+  <a href="https://algosup.com/en.html">![image](https://img.shields.io/badge/Made_At-ALGOSUP-blue)</a>
 
 </div>
 <hr>
