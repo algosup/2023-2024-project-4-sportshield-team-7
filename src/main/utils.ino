@@ -16,6 +16,36 @@ void clearLEDs(void) {
   setLEDs(false, false, false);
 }
 
+void setupPower(void) {
+  pinMode(PIN_ELECTROMAGNET, OUTPUT);
+
+  // Power bridge
+  pinMode(D4, OUTPUT);
+  digitalWrite(D4, HIGH);
+
+  // Battery
+  pinMode(D9, OUTPUT);
+  digitalWrite(D9, HIGH);
+
+  // Battery charging mode
+  pinMode(P0_13, OUTPUT);
+  digitalWrite(P0_13, LOW);
+}
+
+void openElectromagnet(void) {
+  // TODO: Non-blocking
+  digitalWrite(PIN_ELECTROMAGNET, HIGH);
+  delay(DURATION_ELECTROMAGNET);
+  digitalWrite(PIN_ELECTROMAGNET, LOW);
+}
+
+unsigned int readBattery(void) {
+  digitalWrite(PIN_VBAT_ENABLE, LOW);
+  unsigned int vBat = analogRead(PIN_VBAT); //floor(100 * analogRead(PIN_VBAT) / 1023);
+  digitalWrite(PIN_VBAT_ENABLE, HIGH);
+  return vBat;
+}
+
 String convertDMMtoDD(String dmmCoordinates) {
   int degrees;
   float minutes;

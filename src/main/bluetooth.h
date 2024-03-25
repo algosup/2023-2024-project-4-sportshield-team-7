@@ -9,9 +9,6 @@ bool isAuthenticated = false;
 
 const char* DEFAULT_NAME = "\n";
 
-const uint8_t PIN_ELECTROMAGNET = D3;
-const unsigned long DURATION_ELECTROMAGNET = 1000;
-
 const char* DEVICE_NAME = "SportShield Team 7";
 
 const char* PASSWORD_SERVICE_UUID = "19B10000-E8F2-537E-4F6C-D104768A1213";

@@ -108,10 +108,7 @@ void onGetActivation(BLEDevice central, BLECharacteristic characteristic) {
 
 void onSetUnlock(BLEDevice central, BLECharacteristic characteristic) {
   if (isAuthenticated) {
-    // TODO: Non-blocking
     // Activate electromagnet
-    digitalWrite(PIN_ELECTROMAGNET, HIGH);
-    delay(DURATION_ELECTROMAGNET);
-    digitalWrite(PIN_ELECTROMAGNET, LOW);
+    openElectromagnet();
   }
 }

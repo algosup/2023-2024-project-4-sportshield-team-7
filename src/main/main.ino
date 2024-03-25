@@ -15,6 +15,7 @@ void setup(void) {
   setupMotion();
   setupBuzzer();
   setupBluetooth();
+  setupPower();
 
   Serial.println("Setup done");
 setLEDs(false, true, false);
