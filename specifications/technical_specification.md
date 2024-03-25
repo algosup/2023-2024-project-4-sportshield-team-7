@@ -9,6 +9,7 @@
 |   1   |Mattéo LEFIN| 14/03/2024 | Added Table of content and introduction. Added Project goals and scopes|
 |2|Mattéo LEFIN| 15/03/2024|Finish Project Organisation|
 |3|Mattéo LEFIN|21/03/2024|Added an hardware description, risks, project scope and started technical specification. |
+|4|Mattéo LEFIN|25/03/2024|finish technical specification and add images|
 ---
 
 <details open>
@@ -115,7 +116,6 @@ The hardware design is out of the scope of what our team is responsible for.
 
 - We are using imposed libraries for C++.
 
-- Prototype : 
 
 |Piece name|description|Image|
 |----------|-----------|-----|
@@ -128,6 +128,7 @@ The hardware design is out of the scope of what our team is responsible for.
 |NFC antenna |An antenna that send short range signal to an NFC chip (here a componnent in a smartphone) allowing communication between two devices.|![Image of a NFC antenna](/images/NFC_Antenna.png)|
 |Piezoelectric buzzer|An electronic device that can prouduce a 120 Db sound|![Image of a Piezoelectric buzzer](/images/Buzzer.jpg)|
 
+*(List and definition of the project hardware given by the client)*
 
 ### 2. Naming convention
 
@@ -172,7 +173,6 @@ To better Organise our Project we decided to pick some naming conventions.
     |   |   └-- weeklyreport.md
     |   └-- .gitignore
     |   └-- README.md
-    |   └-- LICENSE
 
 </details>
 
@@ -191,13 +191,15 @@ To ensure that there's no communication issue between our team and our stakehold
 
 ### 2. Potential risks
 
-There's always a potential risks that could appear 
+There's always a potential risk that could appear,
 
-We had an issue with the hardware given by the client where much of the equipment is malfunctioning like the module SIM and contact problem between the Arduino card and module SIM.
+We had an issue with the hardware given by the client like the SIM module malfunctioning and a contact problem between the Arduino card and SIM module.
 
 ### 3. Dealing with risks
 
 To deal with those risks we principally analyzed the potential risk and troubleshoot it before we had to firefight and create a mess in our schedules.
+
+New hardware has been given by the client to solve the issues with the  SIM module.
 </details>
 
 ---
@@ -211,18 +213,30 @@ To deal with those risks we principally analyzed the potential risk and troubles
 ### 1. Upgrading battery
 
 we will find a way to upgrade the lifespan of a battery.
+For this, we have to ensure that every component that isn't needed are deactivated to reduce the device's energy cost. We will program a system that shuts off any pieces of hardware that aren't in use and activate them when needed.
 
 ### 2. Bluetooth communication
 
-We will develop the communication between the device and the application on the users' smartphone.
+We will develop the communication between the device and the application on the user's smartphone so the user can link and activate the device.
+
+It's our main priority to ensure Bluetooth working by the end of the project.
+
 
 ### 3. NFC communication
+
+we will allow NFC communication between the device and a card so the user can activate the anti-tief system.
+
+However, it's our lowest priority, we are mostly focusing on Bluetooth and the other hardware adjustments.
 
 ### 4. Sensor
 
 We will adjust the movement detection registered by the sensor to reduce the risk of false alarms. 
+for that, we placed a scale where the sensor would not trigger it for anything and so, activate the buzzer.
 
 ### 5. Electromagnet
+
+we will initialize the magnet so we can lock and unlock the cable.
+For this, the user will press a button on the smartphone app that will send a Bluetooth signal to the device and unlock the cable
 
 ### 6. Test plan
 
