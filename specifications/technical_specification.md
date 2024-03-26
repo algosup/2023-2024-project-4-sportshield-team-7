@@ -31,19 +31,18 @@
   - [2. Naming convention](#2-naming-convention)
   - [3. File list](#3-file-list)
   - [4. File sorting](#4-file-sorting)
-- [***IV. Project risks***](#iv-projeéct-risks)
+- [***IV. Project risks***](#iv-project-risks)
   - [1. Communication risks](#1-communication-risks)
   - [2. Potential risks](#2-potential-risks)
   - [3. Dealing with risks](#3-dealing-with-risks)
-- [***V Technical specifications***](#v-technical-specification)
+- [***V. Technical specifications***](#v-technical-specification)
   - [1. Upgrading battery](#1-upgrading-battery)
   - [2. Bluetooth communication](#2-bluetooth-communication)
   - [3. NFC communication](#3-nfc-communication)
   - [4. Sensor](#4-sensor)
   - [5. Electromagnet](#5-electromagnet)
   - [6. Test Plan](#6-test-plan)
-- ***VI***
-- ***Document approval***
+- [***Document approval***](#document-approval)
 
 (*For a better reading experience, a leaflet has been placed in each part of the document so you can close them when you are finished*)
 </details>
@@ -295,7 +294,7 @@ For this, the user will press a button on the smartphone app that will send a Bl
 
 ### 6. Test plan
 
-We prepared a test strategy to find possible errors and reduce the risk of a firefight at the end of the project. For this, we laid out a plan that you can access right [here]().
+We prepared a test strategy to find possible errors and reduce the risk of a firefight at the end of the project. For this, we laid out a plan that you can access right [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/test_plan/test_plan.md).
 
 </details>
 
