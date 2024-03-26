@@ -1,5 +1,6 @@
 #include "bluetooth.h"
 #include "buzzer.h"
+#include "gps.h"
 #include "motion.h"
 #include "utils.h"
 
@@ -37,6 +38,11 @@ void loop(void) {
   runBluetooth();
 
   updateGPS();
+  if (getGPSStatus()) {
+    Serial.print(getGPSLongitude());
+    Serial.print(" ");
+    Serial.println(getGPSLatitude());
+  }
 
   delay(50);
 }

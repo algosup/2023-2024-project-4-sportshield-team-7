@@ -16,15 +16,19 @@ void setupGPS() {
 void updateGPS() {
   GPS.read();
   if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA()))
-      return; // Failed to parse
+    // Attempt to parse the received line to update the values
+    GPS.parse(GPS.lastNMEA());
   }
+}
 
-  // Serial.print("Fix: "); Serial.print(GPS.fix);
-  // Serial.print(" quality: "); Serial.println(GPS.fixquality);
-  // Serial.print("Location: ");
-  // Serial.print(GPS.latitude, 4); Serial.print(GPS.lat);
-  // Serial.print(", ");
-  // Serial.print(GPS.longitude, 4); Serial.println(GPS.lon);
-  // Serial.print("Speed (knots): "); Serial.println(GPS.speed);
+bool getGPSStatus() {
+  return GPS.fix;
+}
+
+float getGPSLongitude() {
+  return GPS.longitudeDegrees;
+}
+
+float getGPSLatitude() {
+  return GPS.latitudeDegrees;
 }
