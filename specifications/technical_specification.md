@@ -305,9 +305,9 @@ We prepared a test strategy to find possible errors and reduce the risk of a fir
 
 |Reviewer|Date|Approval|
 |--------|----|--------|
-|Manech LAGUENS||
-|Malo ARCHIMBAUD||
-|Mattéo LEFIN|26/03/2024|✅|
-|Laurent BOUQUIN|||
-|Léo CHARTIER|||
-|Mathis KAKAL|||
+|Manech LAGUENS|03/26/2024|✅
+|Malo ARCHIMBAUD|03/26/2024|✅|
+|Mattéo LEFIN| 03/26/2024|✅|
+|Laurent BOUQUIN|03/26/2024|✅|
+|Léo CHARTIER|03/26/2024|✅|
+|Mathis KAKAL|03/26/2024|✅|
