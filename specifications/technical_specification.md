@@ -25,17 +25,17 @@
   - [4. Glossary](#4-glossary)
 - [***II. Project goals and scopes***](#ii-project-goals-and-scopes)
   - [1. Objectives](#1-objectives)
-  - [2. Out of scope](#2-out-of-scope)
+  - [2. Out of scope](#2-in-and-out-of-scope)
 - [***III. Project organisation***](#iii-project-organisation)
-  - [1. Work environnement](#1-work-environnement)
+  - [1. Work environnement](#1-work-environment)
   - [2. Naming convention](#2-naming-convention)
   - [3. File list](#3-file-list)
   - [4. File sorting](#4-file-sorting)
-- [***IV. Project risks***](#iv-project-risks)
+- [***IV. Project risks***](#iv-projeéct-risks)
   - [1. Communication risks](#1-communication-risks)
   - [2. Potential risks](#2-potential-risks)
   - [3. Dealing with risks](#3-dealing-with-risks)
-- ***V Technical specifications***
+- [***V Technical specifications***](#v-technical-specification)
   - [1. Upgrading battery](#1-upgrading-battery)
   - [2. Bluetooth communication](#2-bluetooth-communication)
   - [3. NFC communication](#3-nfc-communication)
@@ -65,6 +65,10 @@ The objective of the Technical Specifications is to translate the Functional Req
 This Project has for purpose the creation of a security system for sports equipment such as skis and possibly snowboards and surfboards in the future using an alarm system similar to a car anti-theft protection, controlled with the owner's phone using an NFC system. 
 Our part in this project is mainly the maintenance of the battery and making the system work with an NFC system.
 
+![the device](/images/Device.png)
+
+(*3D schema of the device*)
+
 ### 3. Functional Specification
 
 A Technical Specifications document contains more actionable/[**low-level data**](#4-glossary) than the Functional Specifications, adding more explanations and a technical aspect of our project! You can access this document right [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/specifications/functional_specification.md).
@@ -85,7 +89,7 @@ A Technical Specifications document contains more actionable/[**low-level data**
 
 <details open>
 
-<summary>project goals and scopes</summary>
+<summary>Project goals and scopes</summary>
 
 ## II. Project goals and scopes
 
@@ -127,7 +131,7 @@ we also have to find a way to make the battery last as long as possible and make
 
 - For programming, we are developing C++/C using the Arduino [**IDE**](#4-glossary). 
 
-- We are using imposed libraries for C++ so the device works perfectly: 
+- We are using imposed libraries in C++ for the device to work perfectly: 
   - NRF52_MBED_TimerInterupt V1.4.1 (enable us to use interrupt for hardware).
   - ArduinoBLE V1.3.6 (enable Bluetooth).
   - Adafruit GPS Library V1.14.0 (enable us to use [**GPS**](#4-glossary)).
@@ -135,15 +139,15 @@ we also have to find a way to make the battery last as long as possible and make
   - OneWire V2.3.7 (enable us to control temperature sensor).
 
 
-|Piece name|description|Image|Document|
+|Piece name|description|Image|Documentations|
 |----------|-----------|-----|----|
 |Xiao BLE Sense nrf52840|Microcontroller used for Bluetooth applications.|![Image of a Xiao BLE Sense nrf52840](/images/xiao_BLE.jpg)|[Xiao BLE documentation](/specifications/hardware_documentation/nRF52840_PS_v1.5.pdf) and [Xiao BLE build plan](/specifications/hardware_documentation/Seeed-Studio-XIAO-nRF52840-Sense-v1.1.pdf)|
 |GNSS PA1010D|A GPS module to locate the device.|![Image of a GNSS PA1010D](/images/GNSS.jpg)|[GNSS documentation](/specifications/hardware_documentation/CD-PA1010D-Datasheet-v.02.pdf)|
 |GSM/2G SIM800L Module|Allows internet connection of the device to 2G cellular networks.|![Image of a GSM/2G SIM800L Module](/images/2g_Module.jpg)|[SIM800L documentation](/specifications/hardware_documentation/SIM800L-SIMCom.pdf)|
 |Arduino card, model SIM800L|The mother Board of the device.|![Image of a Arduino card, model SIM800L](/images/arduino_SIM800L.jpg)|[SIM800L documentation](/specifications/hardware_documentation/SIM800L-SIMCom.pdf)|
-|Electromagnet Mini 2728 Small Solenoid Lock|a soft metal core made into a magnet by the passage of electric current through a coil surrounding it, in this project, we use it lock the device.|![Image of a Electromagnet](/images/Magnet.jpg)|[Electromagnet documentation]()|
+|Electromagnet Mini 2728 Small Solenoid Lock|A soft metal core made into a magnet by the passage of electric current through a coil surrounding it, in this project, we use it lock the device.|![Image of a Electromagnet](/images/Magnet.jpg)|[Electromagnet documentation]()|
 |Lithium-Polymer battery | Energy storage for the system to work.|![Image of a Lithium-Polymer battery](/images/lithium_battery.jpg)|[Battery documentation](/specifications/hardware_documentation/Batterie_LP603449.pdf)|
-|2G Antenna |An antenna that allow devices to recieve information by 2G signals.|![Image of a 2g antenna](/images/2G_Antenna.png)|[2G antenna documentation](/specifications/hardware_documentation/SIM800L-SIMCom.pdf)|
+|2G Antenna |An antenna that allows devices to receive information by 2G signals.|![Image of a 2g antenna](/images/2G_Antenna.png)|[2G antenna documentation](/specifications/hardware_documentation/SIM800L-SIMCom.pdf)|
 |NFC antenna |This antenna allows contactless system and short range communication between two electronic devices.|![Image of a NFC antenna](/images/NFC.jpg)|[NFC antenna documentation](https://docs.rs-online.com/4b3f/0900766b816bd632.pdf)|
 |Piezoelectric buzzer|An electronic device that can produce a 120 Db sound.|![Image of a Piezoelectric buzzer](/images/Buzzer.jpg)|[Buzzer documentation](https://www.cdiscount.com/bricolage/securite-domotique/yosoo-avertisseur-sonore-electronique-10pcs-buzzer/f-1662005-yos7034115523140.html)     *Only available in french*|
 
@@ -153,12 +157,12 @@ we also have to find a way to make the battery last as long as possible and make
 
 To better organize our Project we decided to adhere to naming conventions.
 
-- snake_case (folders/file names and program commentary): hello_world!
-- kebab-case(branch): hello-world!
-- camelCase(function and variables names): helloWorld!
+- snake_case (folders/file names and program commentary): `hello_world!`
+- kebab-case(branch): `hello-world!`
+- camelCase(function and variable names): `helloWorld!`
 
 ### 3. File list
-(*Folders are written in **bold***)
+(*This part is only a representation of our folders and files, only some of them are shown. Folders are written in **bold**.*)
 
 **`src/main`**
 
@@ -213,7 +217,9 @@ To better organize our Project we decided to adhere to naming conventions.
     |   |   └-- user_manual.md
     |   └-- management
     |   |   └-- RACI.md
+    |   |   └-- risks_management.md
     |   |   └-- weekly_report.md
+    |   |   └-- project_charter.md
     |   └-- test_plan
     |   |   └-- test_plan.md
     |   └-- .gitignore
@@ -241,7 +247,7 @@ There's always a potential risk that could appear like communication issues as p
 
 We had an issue with the hardware given by the client like the SIM module malfunctioning and a contact problem between the Arduino card and SIM module.
 
-We analyze the project multiple times to find potential risks and solve the future issue or at least mitigate it before it becomes a problem.
+We analyze the project multiple times to find potential risks and solve future issues or at least mitigate them before they become a problem.
 
 ### 3. Dealing with risks
 
@@ -280,7 +286,7 @@ However, it's our lowest priority, we are mostly focusing on Bluetooth and the o
 ### 4. Sensor
 
 We will adjust the movement detection registered by the sensor to reduce the risk of false alarms. 
-for that, we placed a scale where the sensor would not trigger it for anything and so, activate the buzzer.
+For that, we placed a scale where the sensor would not trigger it for anything and so, activate the buzzer.
 
 ### 5. Electromagnet
 
@@ -294,22 +300,14 @@ We prepared a test strategy to find possible errors and reduce the risk of a fir
 </details>
 
 ---
-<details open>
 
-<summary>?</summary>
-
-## VI. 
-</details>
-
----
-
-### Document Approval
+## Document Approval
 
 |Reviewer|Date|Approval|
 |--------|----|--------|
 |Manech LAGUENS||
 |Malo ARCHIMBAUD||
-|Mattéo LEFIN|||
+|Mattéo LEFIN|26/03/2024|✅|
 |Laurent BOUQUIN|||
 |Léo CHARTIER|||
 |Mathis KAKAL|||
