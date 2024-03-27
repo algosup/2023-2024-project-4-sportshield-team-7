@@ -1,4 +1,4 @@
-# Project Charter - SportShield
+# Project Charter - SportShield - Team 7
 | | |
 |-------------|---------------|
 | **Document name** | Project Charter |
@@ -14,7 +14,6 @@
   - [Stakeholders](#stakeholders)
   - [Milestones](#milestones)
   - [Deliverables](#deliverables)
-  - [Budget](#budget) ~~
 
 ## Overview
 ## Scope
@@ -30,6 +29,21 @@
 |   <img src="https://ca.slack-edge.com/T06NSPENGBX-U06P8F4HBL1-g9ecd879a69a-64">    | Mathis KAKAL | Quality Assurance |
 
 ## Stakeholders
-## Milestones
-## Deliverables
+| Name | Role | Representing | Contact | Expectations |
+|----|----|----|----|----|
+| Algosup |  Project overseer  | Franck JEANNIN | fanon@corisinnovation.com | ~~ |
+| Coris Innovation | Client | Florent ANON | franck.jeannin@algosup.com | ~~ |
 
+## Milestones
+- Functional 18/3 5pm
+- Technical 26/3 5pm
+- Test plan 10/4 5pm
+- User Manual 10/4 5pm
+- Code 10/4 5pm
+- Oral presentation 19/4 9am to 5pm
+
+## Deliverables
+We must deliver the following documents:
+- Functional Specifications
+- Technical Specifications
+- Test Plan
