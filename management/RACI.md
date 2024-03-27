@@ -17,11 +17,11 @@
 | Project brief             | I               | I               | I                | I                 | I                 | R / A  | C            |
 | Project charter           | R / A           | C / I           | C / I            | C / I             | C / I             | C      | C / I        |
 | Schedule / Roadmap        | R / A           | C / I           | C / I            | C / I             | C / I             |        | I            |
-| Functional specifications | C               | R / A           | C                |                   | C / I             | C      | I            |
+| Functional specifications | C  | R / A   | C                | I | C / I             | C      | I            |
 | Technical specifications  | C               | C               | R / A            | C                 | C / I             | C      | I            |
-| Code                      |                 |                 | R                | R /  A            |                   |        |              |
-| Code review               | I               |                 | R / A            | R                 | R                 |        |              |
-| Code documentation        |                 | I               | C                | R / A             | C / I             | I      |              |
-| Usage instructions        |                 | I               | C                | R / A             | C / I             | I      |              |
+| Code | I | I  | R                | R /  A            |    I               |        |              |
+| Code review  | I | I | R / A  | R  |  I       |        |              |
+| Code documentation        |  I               | I               | C                | R / A             | C / I             | I      |              |
+| Usage instructions        |     I            | I               | C                | R / A             | C / I             | I      |              |
 | Testing plan              | C / I           | C               | C                | C                 | R / A             | I      |              |
 
