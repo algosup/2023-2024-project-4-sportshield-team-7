@@ -1,4 +1,12 @@
+// Adapted from
+// https://github.com/ostaquet/Arduino-SIM800L-driver/blob/master/examples/HTTPS_POST_SoftSerial/HTTPS_POST_SoftSerial.ino
+
 #include "sim.h"
+
+#include "gps.h"
+#include "SIM800L.h"
+#include <SoftwareSerial.h>
+#include "utils.h"
 
 void enableSIM(void) {
     // TODO
@@ -10,90 +18,90 @@ void disableSIM(void) {
 
 
 
-#define TIMER_INTERRUPT_DEBUG 0
-#define _TIMERINTERRUPT_LOGLEVEL_ 0
-#include "NRF52_MBED_TimerInterrupt.h"
-#include "NRF52_MBED_ISR_Timer.h"
-#include <Arduino.h>
+const char APN[] = "iot.1nce.net";
+const char BASE_URL[] = "http://141.94.244.11:2000/";
+const char CONTENT_TYPE[] = "application/json";
 
-//SIM
-#include "SIM800L.h"
-
-// SIM800L GSM 2G Module
 UART Serial2(D0, D1, NC, NC);
-#define SIM800_RST_PIN A5
 #define SIM800_DTR_PIN A5
-SIM800L* sim800l;
-bool send_position = false;
-bool send_move = false;
+SIM800L* sim800l = NULL;
 
-void loop() {
-  if (send_move) {  //sending of positions via SIM module
-    Serial.println("Envoi detection mouvement");
-    sim800l->setupGPRS("iot.1nce.net");
-    sim800l->connectGPRS();
-    String Route = "http://141.94.244.11:2000/sendNotfication/" + BLE.address();
-    String RouteCoord = "http://141.94.244.11:2000/updateCoordinate/" + BLE.address();
-    String str = "{\"latitude\": \" " + convertDMMtoDD(String(float(GPS.latitude), 4)) + "\", \"longitude\":\"" + convertDMMtoDD(String(float(GPS.longitude), 4)) + "\"}";
-    String bat = "{\"latitude\": \" " + convertDMMtoDD(String(float(GPS.latitude), 4)) + "\", \"longitude\":\"" + convertDMMtoDD(String(float(GPS.longitude), 4)) + "\", \"batterie\":\"" + String(getBatteryVoltage()) + "\"}";
-    char position[200];
-    char posbat[200];
-    str.toCharArray(position, str.length() + 1);
-    //Serial.println(str);
-    bat.toCharArray(posbat, bat.length() + 1);
-    Serial.println(posbat);
-    char direction[200];
-    char directionCoord[200];
-    Route.toCharArray(direction, Route.length() + 1);
-    RouteCoord.toCharArray(directionCoord, RouteCoord.length() + 1);
-    sim800l->doPost(direction, "application/json", position, 10000, 10000);
-    sim800l->doPost(directionCoord, "application/json", posbat, 10000, 10000);
-    sim800l->disconnectGPRS();
-    send_move = false;
+void simSetup(void) {
+  // Instantiation
+  if (sim800l == NULL) {
+    SoftwareSerial* serial = new SoftwareSerial(D0, D1);
+    delay(1000);
+    sim800l = new SIM800L((Stream *)serial, SIM800_RST_PIN, 200, 512);
   }
 
-  if (send_position) {  //regular sending of positions via SIM module
-    Serial.println("Envoi regulier position");
-    sim800l->setupGPRS("iot.1nce.net");
-    sim800l->connectGPRS();
-    String RouteCoord = "http://141.94.244.11:2000/updateCoordinate/" + BLE.address();
-    String bat = "{\"latitude\": \" " + convertDMMtoDD(String(float(GPS.latitude), 4)) + "\", \"longitude\":\"" + convertDMMtoDD(String(float(GPS.longitude), 4)) + "\", \"batterie\":\"" + String(getBatteryVoltage()) + "\"}";
-    char posbat[200];
-    bat.toCharArray(posbat, bat.length() + 1);
-    Serial.println(posbat);
-    Serial.println(RouteCoord);
-    char directionCoord[200];
-    RouteCoord.toCharArray(directionCoord, RouteCoord.length() + 1);
-    sim800l->doPost(directionCoord, "application/json", posbat, 10000, 10000);
-    sim800l->disconnectGPRS();
-    send_position = false;
-  }
-}
-
-void sim_setup(void) {
+  // Wait until the module is ready to accept AT commands
   while (!sim800l->isReady()) {
     Serial.println(F("Problem to initialize AT command, retry in 1 sec"));
     digitalWrite(LEDR, !digitalRead(LEDR));
     delay(1000);
   }
-  sim800l->enableEchoMode();
-  sim800l->setupGPRS("iot.1nce.net");
 
+  // Wait for the GSM signal
   uint8_t signal = sim800l->getSignal();
   while (signal <= 0) {
     delay(1000);
     signal = sim800l->getSignal();
   }
-  Serial.println(String(signal));
+
+  // Wait for operator network registration (national or roaming network)
   NetworkRegistration network = sim800l->getRegistrationStatus();
   while (network != REGISTERED_HOME && network != REGISTERED_ROAMING) {
-    delay(1000);
-    network = sim800l->getRegistrationStatus();
-    Serial.print(network + " ");
     Serial.println(F("Problem to register, retry in 1 sec"));
     digitalWrite(LEDG, !digitalRead(LEDG));
+    delay(1000);
+    network = sim800l->getRegistrationStatus();
   }
+
+  // Setup APN for GPRS configuration
+  bool success = sim800l->setupGPRS(APN);
+  while(!success) {
+    Serial.println(F("Problem to configure GPRS, retry in 1 sec"));
+    digitalWrite(LEDG, !digitalRead(LEDG));
+    success = sim800l->setupGPRS(APN);
+    delay(5000);
+  }
+  Serial.println(F("GPRS config OK"));
+
   delay(50);
   sim800l->setPowerMode(MINIMUM);      // set minimum functionnality mode
   digitalWrite(SIM800_DTR_PIN, HIGH);  // put in sleep mode
+}
+
+void simLoop(Level level) {
+  // Establish GPRS connectivity (5 trials)
+  bool connected = false;
+  for(uint8_t i = 0; i < 5 && !connected; i++) {
+    delay(1000);
+    connected = sim800l->connectGPRS();
+  }
+
+  // Check if connected, if not reset the module and setup the config again
+  if(connected) {
+    Serial.print(F("GPRS connected with IP "));
+    Serial.println(sim800l->getIP());
+  } else {
+    Serial.println(F("GPRS not connected !"));
+    Serial.println(F("Reset the module."));
+    sim800l->reset();
+    setupModule(); // TODO: Non-blocking
+    return;
+  }
+
+  // TODO: Add BLE address to url
+
+  // Format the payload
+  char payload[200];
+  float lat = getGPSLatitude();
+  float lon = getGPSLongitude();
+  float bat = readBattery();
+  sprintf(payload, "{\"lat\":%f,\"long\":%f,\"bat\":%f,\"level\":%d}", lat, lon, bat, level);
+
+  // Send and disconnect
+  sim800l->doPost(BASE_URL, "application/json", payload, 10000, 10000);
+  sim800l->disconnectGPRS();
 }
