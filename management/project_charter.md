@@ -4,7 +4,7 @@
 | **Document name** | Project Charter |
 | **Document owner** | Manech LAGUENS |
 | **Creation date** | 3/26/2024     |
-| **Last updated** | 3/26/2024 | 
+| **Last updated** | 3/28/2024 | 
 
 - [Project Charter - SportShield](#project-charter---SportShield)
   - [Table of content](#table-of-content)
@@ -31,19 +31,25 @@
 ## Stakeholders
 | Name | Role | Representing | Contact | Expectations |
 |----|----|----|----|----|
-| Algosup |  Project overseer  | Franck JEANNIN | fanon@corisinnovation.com | ~~ |
-| Coris Innovation | Client | Florent ANON | franck.jeannin@algosup.com | ~~ |
+| [ALGOSUP](https://algosup.com/en.html) |  Project overseer  | Franck JEANNIN | fanon@corisinnovation.com | ~~ |
+| [Coris Innovation](https://www.corisinnovation.com/) | Client | Florent ANON | franck.jeannin@algosup.com | ~~ |
 
-## Milestones
-- Functional 18/3 5pm
-- Technical 26/3 5pm
-- Test plan 10/4 5pm
-- User Manual 10/4 5pm
-- Code 10/4 5pm
-- Oral presentation 19/4 9am to 5pm
 
 ## Deliverables
-We must deliver the following documents:
+We must return the following documents:
 - Functional Specifications
 - Technical Specifications
 - Test Plan
+- Weekly reports
+- User Manual
+- Management documentation
+
+## Milestones
+- Functional specification 18/3 5pm.
+- Technical specification 26/3 5pm.
+- Test plan 10/4 5pm.
+- User Manual 10/4 5pm.
+- Code 10/4 5pm.
+- Oral presentation 19/4 9am to 5pm.
+
+
