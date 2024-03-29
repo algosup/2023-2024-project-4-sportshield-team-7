@@ -2,25 +2,22 @@
 
 ## Week 1: 3/11/24 - 3/15/24
 
-
-
-
 Tasks | Status | Deadline | People involved |
 :---: | :---: | :---: | :---: |
 Project scope understanding | Done | 3/11/24 | All the team |
- Initialize the project's repository | Done | 3/11/24 | Mattéo |
-  Technical specification | In progress | 3/26/24 |Mattéo |
-  Functional specification | In progress | 3/18/24 | Malo | 
- Test plan and  testing strategy | In progress | 4/10/24 | Mathis |  
- RACI matrix | Done | 4/10/24 | Manech |
- Hardware testing to check reliability| In progress | 3/22/24 | Léo and Mathis
-  Roadmap| In progress | 4/10/24 | Manech | 
-  KPIs | In progress | 4/10/24 | Manech 
+Initialize the project's repository | Done | 3/11/24 | Mattéo |
+Technical specification | In progress | 3/26/24 |Mattéo |
+Functional specification | In progress | 3/18/24 | Malo | 
+Test plan and  testing strategy | In progress | 4/10/24 | Mathis |  
+RACI matrix | Done | 4/10/24 | Manech |
+Hardware testing to check reliability| In progress | 3/22/24 | Léo and Mathis
+Roadmap| In progress | 4/10/24 | Manech | 
+KPIs | In progress | 4/10/24 | Manech 
 
 
 This first week was mainly about initiating the project and planning. We made sure that all the team members understood the project's scope, its objectives and its difficulties. A first mail has been sent to the client since some questions couldn't be answered by the documentation, which was outdated.  
 
-## Next week's action plan 
+### Next week's action plan
 
 The technical specification writing is in progress as well as the test plan, and the functional will be done on Monday. The KPIs and the roadmap will be defined, and all the hardware will be fully tested. The QA will initiate the GitHub issues templates.
 
@@ -45,10 +42,26 @@ User manual | In progress | 4/10/24 | Laurent |
 
 During this second week, the team dived into the project's core. Thanks to serious work, a significant part of the code has been done. Everybody in the team has their tasks and objectives in mind. For now, all the deadlines are respected and we're not late for the upcoming ones.
 
-## Next week's action plan 
+### Next week's action plan 
 
 The functional specification is done and is being quality-checked. The management documentation will continue being written and the roadmap as well as the KPIs will be done after the rest. The user manual is in progress. The GPS coding has already begun and will be done during the week.
 
+
+
+## Week 3: 3/25/24 - 3/29/24
+
+Tasks | Status | Deadline | People involved |
+:---: | :---: | :---: | :--: |
+Technical Specification | Done | 3/26/24 | Mattéo |
+Test plan and testing strategy | In progress | 4/10/24 | Mathis |
+Roadmap | In progress | 4/10/24 | Manech |
+KPIs | In progress | 4/10/24 | Manech |
+Deliverables | Done | 4/10/24 | Manech |
+Milestones | Done | 4/10/24 | Manech |
+Risks and mitigations plan | In progress | 4/10/24 | Manech |
+User manual | Done | 4/10/24 | Laurent |
+
+Like last week, we have been very productive. We encountered some hardware issues with the sim module, so this part is paused for now. We are currently waiting for an answer from Coris concerning this issue.
 
 
 
