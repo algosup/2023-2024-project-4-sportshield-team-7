@@ -22,8 +22,8 @@ const char APN[] = "iot.1nce.net";
 const char BASE_URL[] = "http://141.94.244.11:2000/";
 const char CONTENT_TYPE[] = "application/json";
 
-UART Serial2(D0, D1, NC, NC);
 #define SIM800_DTR_PIN A5
+#define SIM800_RST_PIN A5
 SIM800L* sim800l = NULL;
 
 void simSetup(void) {
@@ -37,7 +37,7 @@ void simSetup(void) {
   // Wait until the module is ready to accept AT commands
   while (!sim800l->isReady()) {
     Serial.println(F("Problem to initialize AT command, retry in 1 sec"));
-    digitalWrite(LEDR, !digitalRead(LEDR));
+    // digitalWrite(LEDR, !digitalRead(LEDR));
     delay(1000);
   }
 
@@ -52,7 +52,7 @@ void simSetup(void) {
   NetworkRegistration network = sim800l->getRegistrationStatus();
   while (network != REGISTERED_HOME && network != REGISTERED_ROAMING) {
     Serial.println(F("Problem to register, retry in 1 sec"));
-    digitalWrite(LEDG, !digitalRead(LEDG));
+    // digitalWrite(LEDG, !digitalRead(LEDG));
     delay(1000);
     network = sim800l->getRegistrationStatus();
   }
@@ -61,7 +61,7 @@ void simSetup(void) {
   bool success = sim800l->setupGPRS(APN);
   while(!success) {
     Serial.println(F("Problem to configure GPRS, retry in 1 sec"));
-    digitalWrite(LEDG, !digitalRead(LEDG));
+    // digitalWrite(LEDG, !digitalRead(LEDG));
     success = sim800l->setupGPRS(APN);
     delay(5000);
   }
@@ -88,7 +88,7 @@ void simLoop(Level level) {
     Serial.println(F("GPRS not connected !"));
     Serial.println(F("Reset the module."));
     sim800l->reset();
-    setupModule(); // TODO: Non-blocking
+    simSetup(); // TODO: Non-blocking
     return;
   }
 

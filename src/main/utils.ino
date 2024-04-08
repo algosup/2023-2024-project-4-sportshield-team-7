@@ -28,8 +28,8 @@ void setupPower(void) {
   digitalWrite(D9, HIGH);
 
   // Battery charging mode
-  pinMode(P0_13, OUTPUT);
-  digitalWrite(P0_13, LOW);
+  pinMode(13, OUTPUT);
+  digitalWrite(13, LOW);
 }
 
 void openElectromagnet(void) {
@@ -40,9 +40,9 @@ void openElectromagnet(void) {
 }
 
 unsigned int readBattery(void) {
-  digitalWrite(PIN_VBAT_ENABLE, LOW);
+  digitalWrite(VBAT_ENABLE, LOW);
   unsigned int vBat = analogRead(PIN_VBAT); //floor(100 * analogRead(PIN_VBAT) / 1023);
-  digitalWrite(PIN_VBAT_ENABLE, HIGH);
+  digitalWrite(VBAT_ENABLE, HIGH);
   return vBat;
 }
 
