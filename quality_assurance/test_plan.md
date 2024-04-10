@@ -1,5 +1,3 @@
-<!-- TOC -->
-
 <details><summary><em><ins>Click to expand table of content...</ins></em></summary>
 
 - [Introduction](#introduction)
@@ -60,9 +58,6 @@
 
 </details>
 
-
-<!-- /TOC -->
-
 # Introduction
 ## Purpose
 
@@ -81,9 +76,9 @@ At the end of this presentation, the project was officially initiated.
 
 The goal of this project is to enhance existing research prototype solution named SportShield, in order to meet business and customer Requirements.
 
-It consists of an ^^IOT^^ circuit, that acts as a ^^motherboard^^ for several additional components.
+It consists of an IOT[^1] circuit, that acts as a motherboard[^2] for several additional components.
 
-These ^^components^^, are either soldered or plugged to the motherboard.
+These components[^3], are either soldered or plugged to the motherboard.
 
 You may find a full explanation of the project's goals and requirements in the functional specifications at [this link](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/specifications/functional_specification.md#11-overview)
 
@@ -95,7 +90,7 @@ As identified in the [Functional](https://github.com/algosup/2023-2024-project-4
 
 ## KPIs
 
-The following metrics (^^KPIs^^) are provided by the customer and will be used in order to track the progress of the development of the solution.
+The following metrics (KPIs[^4]) are provided by the customer and will be used in order to track the progress of the development of the solution.
 
 | Metric | Target | Criticality |
 |---|---|---|
@@ -495,3 +490,9 @@ Indeed, during testing, we have found a PCB defect on the Sim 800L module, and c
 As a QA, I personally regret not spending more time helping the software engineer find workarounds to problems he might have needed an external view on, this project being a hardware project, which I only have basic knowledge of.
 
 Apart from the NFC, which seems to need more time for porting an existing NFC library to our platform to make it compatible, all of our other tests and results from other groups have shown that the other components such as the movement sensor, the bluetooth connection with the device, the sound alarm, and the GPS functionality all work well and have successfully been implemented.
+
+
+[^1]: IOT stands for "Internet of Things", which in this context describes the plethora of small low power connected devices that are found more and more around us 
+[^2]: Motherboard or also referred to as "PCB" stands for Printed Circuit Board, and designates the circuit that connects all the other components together 
+[^3]: Components is the term we use to refer to all other components BUT the motherboard
+[^4]: KPIs is a project/product management term to designate the metrics that are tracked during a project to help following its progress or success.
