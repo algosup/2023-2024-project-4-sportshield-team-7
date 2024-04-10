@@ -27,14 +27,13 @@
 
 ### Step 1: Charge the device
 
-1. Connect the USB cable to the device.
+1. Connect the provided USB cable to the device.
 2. Connect the USB cable to a power source.
 3. Once the device is fully charged, disconnect the USB cable from the device.
 
 ### Step 2: Turn on the device
 
-1. The device will automatically turn on as soon as it has enough battery.
-2. You can check the battery level by looking at the application.
+1. The device will automatically turn on as soon as it has enough battery (You will be able to check the battery level by looking at the application, once installed).
 
 ### Step 3: Pair the device with your phone
 
@@ -50,10 +49,11 @@
 3. Go around the ski and put the cable on the other side of the device.
 4. Make sure the device is securely attached to the ski.
 5. Use the application to lock the cable to the device.
+6. Try to pull on the cable to make sure it is securely attached to the device.
 
 ### Step 5: Tidy up the device
 
-1. Make sure the device is securely attached to the ski.
+1. Make sure the device is securely attached to the skis.
 2. Make sure the cable is not tangled.
 3. Make sure the device is not obstructed by any other objects.
 4. Use the application to unlock the cable from the device.
