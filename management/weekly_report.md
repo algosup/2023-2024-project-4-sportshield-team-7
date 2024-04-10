@@ -63,9 +63,33 @@ User manual | Done | 4/10/24 | Laurent |
 
 Like last week, we have been very productive. We encountered some hardware issues with the sim module, so this part is paused for now. We are currently waiting for an answer from Coris concerning this issue.
 
+### Next week's action plan 
+For now, we will be focused on the management documentation, as we are waiting for an answer. We will try to finish every "in progress" status to be able to prepare the oral presentation.
 
 
+## Week 4: 4/1/24 - 4/5/24
 
+Tasks | Status | Deadline | People involved |
+:---: | :---: | :---: | :--: |
+Test plan and testing strategy | In progress | 4/10/24 | Mathis |
+Roadmap | In progress | 4/10/24 | Manech |
+KPIs | Paused | 4/10/24 | Manech |
+Risks and mitigations plan | In progress | 4/10/24 | Manech |
+
+As we didn't have any project time this week, we didn't make progress. We got an answer from Coris, but too late considering the deadlines, furthermore, we cannot open the given files.
+
+### Next week's action plan 
+Management and documentation will be done, so the last week can be focused on the oral presentation training.
+
+## Week 5: 4/8/24 - 4/12/24
+
+Tasks | Status | Deadline | People involved |
+:---: | :---: | :---: | :--: |
+Test plan and testing strategy | Done | 4/10/24 | Mathis |
+Roadmap | Done | 4/10/24 | Manech |
+Risks and mitigations plan | In progress | 4/10/24 | Manech |
+
+On this last week before the oral presentation training, we fine-tuned our documentation. We also started the organization of next week. 
 
 
 

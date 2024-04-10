@@ -4,7 +4,7 @@
 | **Document name** | Project Charter |
 | **Document owner** | Manech LAGUENS |
 | **Creation date** | 3/26/2024     |
-| **Last updated** | 3/28/2024 | 
+| **Last updated** | 4/6/2024 | 
 
 - [Project Charter - SportShield](#project-charter---SportShield)
   - [Table of content](#table-of-content)
@@ -16,8 +16,9 @@
   - [Deliverables](#deliverables)
 
 ## Overview
-We are charged to enhance an already existing code given by Coris Innovation. Our main objective is to improve the battery lifespan of this anti-theft device
+This SportShield project aims to enhance the anti-theft device capabilities given by Coris Innovation. It focuses on extending the battery longevity, integrating NFC, optimizing the alarm responsiveness and upgrading security measures. This project aims to raise the device's efficiency, with a rigorous optimization of the software, an exhaustive testing procedure and comprehensive and understandable documentation.
 ## Scope
+
 ## Team Members
 |       |      |      |
 |-------|------|------|
@@ -32,7 +33,7 @@ We are charged to enhance an already existing code given by Coris Innovation. Ou
 ## Stakeholders
 | Name | Role | Representing | Contact | Expectations |
 |----|----|----|----|----|
-| [ALGOSUP](https://algosup.com/en.html) |  Project overseer  | Franck JEANNIN | franck.jeannin@algosup.com  | The project overseer wants the project to match the client criterias regarding the given deadlines. As well as clear specifications and risk management. |
+| [ALGOSUP](https://algosup.com/en.html) |  Project overseer  | Franck JEANNIN | franck.jeannin@algosup.com  | The project overseer wants the project to match the client criterias regarding the given deadlines, as well as clear specifications and risk management. |
 | [Coris Innovation](https://www.corisinnovation.com/) | Client | Florent ANON | fanon@corisinnovation.com | The client expects its initial software to be improved as asked in the slide show. |
 
 ## Deliverables
