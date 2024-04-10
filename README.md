@@ -57,22 +57,20 @@
 -->
 
 <div align="center">
-<!--
+
 #### Project Navigation
 
 |User Manual|Functional Specifications|Technical Specifications|Quality Assurance|
 |---|---|---|---|
-|1|2|3|4|
+|<a href="https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/user_manual/user_manual.md"><img src="images/userManual.png"></img></a>|<a href="https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/specifications/functional_specification.md"><img src="images/funcSpecs.png"></img></a>|<a href="https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/specifications/technical_specification.md"><img src="images/techSpecs.png"></img></a>|<a href="https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/quality_assurance/test_plan.md"><img src="images/testPlan.png"></img></a>|
 
 </div>
 
 <hr>
--->
+
 
 ### What is SportShield ?
 
-### Resources
-
 ### Roadmap
 
-### 
+### Thanks
