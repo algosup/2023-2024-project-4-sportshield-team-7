@@ -40,9 +40,9 @@ void openElectromagnet(void) {
 }
 
 unsigned int readBattery(void) {
-  digitalWrite(VBAT_ENABLE, LOW);
+  digitalWrite(PIN_VBAT_ENABLE, LOW);
   unsigned int vBat = analogRead(PIN_VBAT); //floor(100 * analogRead(PIN_VBAT) / 1023);
-  digitalWrite(VBAT_ENABLE, HIGH);
+  digitalWrite(PIN_VBAT_ENABLE, HIGH);
   return vBat;
 }
 
