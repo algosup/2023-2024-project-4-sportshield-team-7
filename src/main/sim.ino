@@ -5,8 +5,8 @@
 
 #include "gps.h"
 #include "SIM800L.h"
-#include <SoftwareSerial.h>
 #include "utils.h"
+#include <Serial.h>
 
 SIM800L* sim800l = NULL;
 
@@ -24,9 +24,11 @@ void disableSIM(void) {
 void simSetup(void) {
   // Instantiation
   if (sim800l == NULL) {
-    SoftwareSerial* serial = new SoftwareSerial(D0, D1);
+    UART serial(D0, D1, NC, NC);
+    serial.begin(9600);
+    while (!serial) {}
     delay(1000);
-    sim800l = new SIM800L((Stream *)serial, SIM800_RST_PIN, 200, 512);
+    sim800l = new SIM800L((Stream*) &serial, SIM800_RST_PIN, 200, 512);
   }
 
   // Wait until the module is ready to accept AT commands
