@@ -245,7 +245,7 @@ A good way to visualise the power of Issues is to view some of them.
 
 As you can see in those examples, issues are used simultaneously as test cases, test reports, and bug reports.
 
-Conversations may be used to track discussions and updates on the tests, as such: !
+Conversations may be used to track discussions and updates on the tests, as such:
 
 <div align="center">
 
