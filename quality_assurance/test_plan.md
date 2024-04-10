@@ -474,7 +474,7 @@ Since the quality assurance work affects the work of all the other team members,
 
 ## QA Collaboration
 
-You can find our collaboration strategy in [this document]().
+You can find our collaboration strategy in [this document](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/main/quality_assurance/qa_collaboration.md.md).
 
 # Results
 
