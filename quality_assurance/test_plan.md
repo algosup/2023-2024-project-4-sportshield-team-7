@@ -105,7 +105,7 @@ Internally we also have defined several KPIs in order to track the progress of t
 
 Aside from those defined by the project management, the quality assurance will focus mainly on criticality/severity assessment of feature/bug, time estimations and bug rate of produced code or available hardware.
 
-The complete list of tracked properties can be found in the tooling section following this link. <LINK> #fill
+The complete list of tracked properties can be found in the tooling section following [this link](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#tooling).
 
 ## Testing Fields
 
@@ -132,7 +132,7 @@ You can find more extensive resources and maps of all hardware tests following [
 
 This is the second testing field of the project, which is the most important for tracking the progress of our developed solution.
 
-The software testing field is heavily influenced by the customer's expectations, defined in the <LINK> metrics table in the KPI section. #fill
+The software testing field is heavily influenced by the customer's expectations, defined in the metrics table in the [KPI section](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#kpis).
 
 ### Deliverables
 
@@ -152,7 +152,7 @@ Processes testing aims to prevent them to hinder our progress.
 # Tooling
 ## Overview (Diagram)
 
-As defined in the next section <LINK> mentioned the QA workflow relies essentially on the Github Issues + Projects workflow, with the issues acting as tickets (test cases, reports, bug reports, feature requests etc.) and Projects serving as a database and visualisation tool of all the Issues. #fill
+As defined in the [next section](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#github) mentioned the QA workflow relies essentially on the Github Issues + Projects workflow, with the issues acting as tickets (test cases, reports, bug reports, feature requests etc.) and Projects serving as a database and visualisation tool of all the Issues.
 
 ### Bug Resolution Process
 
@@ -266,7 +266,7 @@ As of today, there are 4 templates:
 
     - The form name is pretty self explanatory. It has the particularity of setting the issue's label automatically to `bug` for easier triaging.
 
-    - The forms are already well described in terms of fields and features, so they won't be described here, but you can view it[here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/issues/new?assignees=mathiskakal&labels=bug&projects=algosup%2F29&template=bug_report_form.yaml&title=%5BBUG%5D+INSERT_BUG_NAME).
+    - The forms are already well described in terms of fields and features, so they won't be described here, but you can view it [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/issues/new?assignees=mathiskakal&labels=bug&projects=algosup%2F29&template=bug_report_form.yaml&title=%5BBUG%5D+INSERT_BUG_NAME).
 
 - ### Test Case form
 
@@ -284,7 +284,7 @@ As of today, there are 4 templates:
 
     - This form allows any contributor to declare a typo or an incoherence in a document. It is essentially a simpler "bug report".
 
-    - You can view it [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/issues/new?assignees=&labels=documentation&projects=&template=document-suggestion.md&title=%5BDOCS%5D+DOCUMENT_NAME). <LINK> #fill
+    - You can view it [here](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/issues/new?assignees=&labels=documentation&projects=&template=document-suggestion.md&title=%5BDOCS%5D+DOCUMENT_NAME).
 
 - ### Projects
 
@@ -335,7 +335,7 @@ As of today, there are 4 templates:
 
     - #### Iteration
 
-    - The iteration (only for test cases) the test is part of. Refer to Iterations <LINK> #fill
+    - The iteration (only for test cases) the test is part of. Refer to [Iterations](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#iterations-testing-phases).
     
     - #### Test Size
 
@@ -388,7 +388,7 @@ As of today, there are 4 templates:
 
 </div>
 
-In the context of a QA collaboration <LINK> #fill we have set up a testing environment for overnight tests (since we needed to leave the hardware at the school), using Github actions and Github workflows, running Ubuntu LTS 22.04.
+In the context of a [QA collaboration](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#qa-collaboration), we have set up a testing environment for overnight tests (since we needed to leave the hardware at the school), using Github actions and Github workflows, running Ubuntu LTS 22.04.
 
 The goal of this server is to provide a single testing platform for multiple groups, ensuring better consistency and increased quality of the product, since we could test other code on our hardware.
 
@@ -398,7 +398,7 @@ Finally, as this document is more a synthesis than a full collection of QA artef
 
 The wiki provides: full test results and reports, actions taken from those results, full planning and strategy of the tests and more a thorough explanation on the work undertaken by the QA.
 
-You can find it from the main repository under the tab "Wiki" or by following this link <LINK> #fill
+You can find it from the main repository under the tab "Wiki" or by following [this link](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/wiki).
 
 # Strategy
 
@@ -445,7 +445,7 @@ Duration: 1 week.
 
 ### Testing Phase 1
 
-This is the first testing phase, for which the main goal is to start tracking the KPIs <LINK> provided by the client against the first iteration of our solution to ensure that we will even be capable to reach the business/customer requirements. #fill
+This is the first testing phase, for which the main goal is to start tracking the [KPIs](https://github.com/algosup/2023-2024-project-4-sportshield-team-7/blob/test-plan/quality_assurance/test_plan.md#kpis) provided by the client against the first iteration of our solution to ensure that we will even be capable to reach the business/customer requirements.
 
 The results of the first testing phase will allow to tailor our efforts better, readjust the testing plan/strategy, and better prepare the next testing phase.
 
@@ -474,7 +474,7 @@ Since the quality assurance work affects the work of all the other team members,
 
 ## QA Collaboration
 
-#fill
+You can find our collaboration strategy in [this document]().
 
 # Results
 
