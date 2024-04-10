@@ -63,20 +63,38 @@
 
 # Paper Version
 
+<div align="center">
 <img src="../images/user_manual_0.png" alt="Page 0" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_1.png" alt="Page 1" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_2.png" alt="Page 2" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_3.png" alt="Page 3" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_4.png" alt="Page 4" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_5.png" alt="Page 5" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_6.png" alt="Page 6" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_7.png" alt="Page 7" width="300">
+</div>
 
+<div align="center">
 <img src="../images/user_manual_8.png" alt="Page 8" width="300">
+</div>
