@@ -8,14 +8,6 @@
 #include <SoftwareSerial.h>
 #include "utils.h"
 
-
-
-const char APN[] = "iot.1nce.net";
-const char BASE_URL[] = "http://141.94.244.11:2000/";
-const char CONTENT_TYPE[] = "application/json";
-
-#define SIM800_DTR_PIN A5
-#define SIM800_RST_PIN A5
 SIM800L* sim800l = NULL;
 
 void enableSIM(void) {
