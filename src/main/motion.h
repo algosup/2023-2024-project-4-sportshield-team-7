@@ -1,6 +1,9 @@
+#ifndef SPORTSHIELD_
+#define SPORTSHIELD_
+
 #include <LSM6DS3.h>
 
-enum Level { off, low, high };
+#include "utils.h"
 
 // The measurement device
 extern LSM6DS3 imu;
@@ -15,3 +18,5 @@ void setupMotion(void);
 float getAcceleration(void);
 float getAngularVelocity(void);
 Level getMotionLevel(void);
+
+#endif

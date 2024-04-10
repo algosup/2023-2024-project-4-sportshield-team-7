@@ -1,3 +1,6 @@
+#include "bluetooth.h"
+#include "buzzer.h"
+#include "gps.h"
 #include "motion.h"
 #include "utils.h"
 
@@ -11,12 +14,38 @@ void setup(void) {
   
   Serial.println("Setup");
   setupMotion();
+  setupBuzzer();
+  setupBluetooth();
+  setupPower();
+  setupGPS();
 
   Serial.println("Setup done");
   setLEDs(false, true, false);
 }
 
 void loop(void) {
-  Serial.println(getMotionLevel());
-  // delay(100);
+  Level motionLevel = getMotionLevel();
+
+  // Buzzer
+  if (motionLevel == low_level) {
+    playLowTone();
+  } else if (motionLevel == high_level) {
+    playHighTone();
+  } else {
+    checkBuzzer();
+  }
+
+  if (!bluetoothReady && motionLevel != off) {
+    setupBluetooth();
+  }
+  runBluetooth();
+
+  updateGPS();
+  if (getGPSStatus()) {
+    Serial.print(getGPSLongitude());
+    Serial.print(" ");
+    Serial.println(getGPSLatitude());
+  }
+
+  delay(50);
 }

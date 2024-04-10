@@ -1,0 +1,6 @@
+#ifndef SPORTSHIELD_CONSTANTS
+#define SPORTSHIELD_CONSTANTS
+
+
+
+#endif
