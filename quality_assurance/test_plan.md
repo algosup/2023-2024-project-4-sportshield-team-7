@@ -1,5 +1,7 @@
 <!-- TOC -->
 
+<details><summary><em><ins>Click to expand table of content...</ins></em></summary>
+
 - [Introduction](#introduction)
     - [Purpose](#purpose)
     - [Product Analysis](#product-analysis)
@@ -54,6 +56,10 @@
     - [Daily reports](#daily-reports)
     - [QA Collaboration](#qa-collaboration)
 - [Results](#results)
+
+
+</details>
+
 
 <!-- /TOC -->
 
