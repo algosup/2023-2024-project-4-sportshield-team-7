@@ -65,7 +65,7 @@ The Goal of this Document is to outline the activity of the quality assurance en
 
 Several other artefacts created with the goal of helping the quality assurance and the rest of the team achieving higher quality are available mostly on Github. The goal of the test plan is to act as an entry point to those.
 
-Finally the test plan aims to help achieving a potential handing over of our team's activities  to another team, such as a team at Coris Innovation, for instance, or another future 3rd party working on ^^the solution^^.
+Finally the test plan aims to help achieving a potential handing over of our team's activities  to another team, such as a team at Coris Innovation, for instance, or another future 3rd party working on the solution[^5].
 
 ## Product Analysis
 ### Customer/Business Requirements
@@ -496,3 +496,4 @@ Apart from the NFC, which seems to need more time for porting an existing NFC li
 [^2]: Motherboard or also referred to as "PCB" stands for Printed Circuit Board, and designates the circuit that connects all the other components together 
 [^3]: Components is the term we use to refer to all other components BUT the motherboard
 [^4]: KPIs is a project/product management term to designate the metrics that are tracked during a project to help following its progress or success.
+[^5]: The solution: refers to the SportShield Project Implementation done by us, team 4.
