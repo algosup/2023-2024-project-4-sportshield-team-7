@@ -1,7 +1,7 @@
 name: Feature Request Form
 description: Declares a feature request.
 title: "[FEATURE] FEATURE_NAME"
-labels: [test]
+labels: [feature]
 assignees: [mathiskakal]
 projects: [algosup/32]
 body:
