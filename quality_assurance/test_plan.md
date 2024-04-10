@@ -487,9 +487,9 @@ Internal communication within the team didn't help either because precious infor
 
 Indeed, during testing, we have found a PCB defect on the Sim 800L module, and combined, with the fact that the magnet couldn't work, this means that 2/3 of the most power hungry elements were unusable, rendering battery operation tests unrepresentative.
 
-As a QA, I personally regret not spending more time helping the software engineer find workarounds to problems he might have needed an external view on, this project being a hardware project, which I only have basic knowledge of.
+As a QA, I personally regret not spending more time helping the software engineer to find workarounds to problems he might have needed an external view on, this project being a hardware project, which I only have basic knowledge of.
 
-Apart from the NFC, which seems to need more time for porting an existing NFC library to our platform to make it compatible, all of our other tests and results from other groups have shown that the other components such as the movement sensor, the bluetooth connection with the device, the sound alarm, and the GPS functionality all work well and have successfully been implemented.
+Apart from the NFC, which seems to need more time for porting an existing NFC library to our platform to make it compatible, all of our other tests and those from other groups have shown that the other components such as the movement sensor, the bluetooth connection with the device, the sound alarm, and the GPS functionality all work well and have successfully been implemented.
 
 
 [^1]: IOT stands for "Internet of Things", which in this context describes the plethora of small low power connected devices that are found more and more around us 
