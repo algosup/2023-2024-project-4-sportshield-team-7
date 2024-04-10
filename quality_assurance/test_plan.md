@@ -485,7 +485,7 @@ A little less than a week was given by the project overseer to the specification
 
 Internal communication within the team didn't help either because precious information (PCB schematics) have been held back at a crucial blocking point where we started considering giving up on a core aspect of the project (battery operation), since no representative testing could be done.
 
-Indeed, during testing, we have found a PCB defect on the Sim 800L module, and combined, with the fact that the magnet couldn't work, this means that 2/3 of the most power hungry elements were unusable, rendering battery operation tests unrepresentative.
+Indeed, during testing, we have found a PCB defect on the Sim 800L module, and combined with the fact that the magnet couldn't work, means that 2/3 of the most power hungry elements were unusable, rendering battery operation tests unrepresentative.
 
 As a QA, I personally regret not spending more time helping the software engineer to find workarounds to problems he might have needed an external view on, this project being a hardware project, which I only have basic knowledge of.
 
