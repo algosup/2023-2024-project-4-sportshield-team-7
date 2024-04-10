@@ -7,6 +7,10 @@ String username = "\n";
 bool isActivated = false;
 bool isAuthenticated = false;
 
+const unsigned long BLUETOOTH_TIMEOUT = 60000; // 1 min
+bool bluetoothConnected = false;
+bool bluetoothReady = false;
+
 const char* DEFAULT_NAME = "\n";
 
 const char* DEVICE_NAME = "SportShield Team 7";

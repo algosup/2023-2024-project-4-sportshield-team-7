@@ -16,11 +16,14 @@ BLEStringCharacteristic MACCharacteristic(MAC_CHARACTERISTIC_UUID, BLERead, 20);
 BLEBooleanCharacteristic ActivationCharacteristic(ACTIVATION_CHARACTERISTIC_UUID, BLERead | BLEWrite);
 BLEBooleanCharacteristic UnlockCharacteristic(UNLOCK_CHARACTERISTIC_UUID, BLEWrite);
 
+unsigned long bluetoothUpdated;
+
 void setupBluetooth(void) {
   if (!BLE.begin()) {
     Serial.println("Starting Bluetooth® Low Energy module failed!");
-    while (1);
+    while (1); // TODO: Error handling
   }
+  bluetoothReady = true;
 
   // Device
   BLE.setLocalName(DEVICE_NAME);
@@ -62,9 +65,17 @@ void setupBluetooth(void) {
 
   // Start advertising
   BLE.advertise();
+  bluetoothUpdated = millis();
 }
 
 void runBluetooth(void) {
+  if (!bluetoothConnected && millis() > bluetoothUpdated + BLUETOOTH_TIMEOUT) {
+    if (bluetoothReady) {
+      bluetoothReady = false;
+      BLE.end();
+    }
+    return;
+  }
   if (central) {
     central.poll();
   } else {
@@ -72,10 +83,14 @@ void runBluetooth(void) {
   }
 }
 
-void onConnect(BLEDevice central) {}
+void onConnect(BLEDevice central) {
+  bluetoothConnected = true;
+}
 
 void onDisconnect(BLEDevice central) {
   isAuthenticated = false;
+  bluetoothConnected = false;
+  bluetoothUpdated = millis();
 }
 
 void onSetPassword(BLEDevice central, BLECharacteristic characteristic) {

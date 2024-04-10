@@ -35,6 +35,9 @@ void loop(void) {
     checkBuzzer();
   }
 
+  if (!bluetoothReady && motionLevel != off) {
+    setupBluetooth();
+  }
   runBluetooth();
 
   updateGPS();
