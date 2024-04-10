@@ -409,7 +409,7 @@ Let's first take a look at the milestones we have.
 
 <div align="center">
     
-![Timetable of milestones](../assets/milestones.png)
+![Timetable of milestones](../images/milestones.png)
     
 </div>
 
@@ -429,7 +429,7 @@ Let's first take a look at the milestones we have.
 
 <div align="center">
     
-![Timetable of testing phases](../assets/iterations.png)
+![Timetable of testing phases](../images/iterations.png)
     
 </div>
 
