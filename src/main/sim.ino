@@ -8,14 +8,6 @@
 #include <SoftwareSerial.h>
 #include "utils.h"
 
-void enableSIM(void) {
-    // TODO
-}
-
-void disableSIM(void) {
-    // TODO
-}
-
 
 
 const char APN[] = "iot.1nce.net";
@@ -25,6 +17,17 @@ const char CONTENT_TYPE[] = "application/json";
 #define SIM800_DTR_PIN A5
 #define SIM800_RST_PIN A5
 SIM800L* sim800l = NULL;
+
+void enableSIM(void) {
+  digitalWrite(SIM800_DTR_PIN, LOW); // normal mode
+  delay(100);
+  sim800l->setPowerMode(NORMAL);
+}
+
+void disableSIM(void) {
+  sim800l->setPowerMode(MINIMUM);
+  digitalWrite(SIM800_DTR_PIN, HIGH); // sleep mode
+}
 
 void simSetup(void) {
   // Instantiation
