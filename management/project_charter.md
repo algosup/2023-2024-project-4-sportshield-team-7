@@ -4,12 +4,11 @@
 | **Document name** | Project Charter |
 | **Document owner** | Manech LAGUENS |
 | **Creation date** | 3/26/2024     |
-| **Last updated** | 4/6/2024 | 
+| **Last updated** | 4/16/2024 | 
 
 - [Project Charter - SportShield](#project-charter---SportShield)
   - [Table of content](#table-of-content)
   - [Overview](#overview)
-  - [Scope](#scope)
   - [Team Members](#team-members)
   - [Stakeholders](#stakeholders)
   - [Milestones](#milestones)
@@ -17,18 +16,18 @@
 
 ## Overview
 This SportShield project aims to enhance the anti-theft device capabilities given by Coris Innovation. It focuses on extending the battery longevity, integrating NFC, optimizing the alarm responsiveness and upgrading security measures. This project aims to raise the device's efficiency, with a rigorous optimization of the software, an exhaustive testing procedure and comprehensive and understandable documentation.
-## Scope
+
 
 ## Team Members
 |       |      |      |
 |-------|------|------|
 | Photo | Name | Role |
-|  <img src="https://ca.slack-edge.com/T06NSPENGBX-U06P8AXTKG9-gc3ee79f9544-64">     | [Manech LAGUENS](https://www.linkedin.com/in/manech-laguens-020127293/) | Project Manager |
-|  <img src="https://ca.slack-edge.com/T06NSPENGBX-U06P8F501MF-g01c4dd4777d-64">     | [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa12232/) | Program Manager |
-|   <img src="https://ca.slack-edge.com/T06NSPENGBX-U06PJJZ10Q0-gea5dac389e4-64">    | [Mattéo LEFIN](https://www.linkedin.com/in/matt%C3%A9o-lefin-380272293/) | Technical Leader | 
-|   <img src="https://ca.slack-edge.com/T06NSPENGBX-U06NVR88XD0-gc8a06da2c80-64">    | [Léo CHARTIER](https://www.linkedin.com/in/l%C3%A9o-chartier/) | Software Engineer |
-|   <img src="https://ca.slack-edge.com/T06NSPENGBX-U06NY9A0K0U-ge6ea4153c87-64">    | [Laurent BOUQUIN](https://www.linkedin.com/in/laurentb22/) | Technical Writer |
-|   <img src="https://ca.slack-edge.com/T06NSPENGBX-U06P8F4HBL1-g9ecd879a69a-64">    | [Mathis KAKAL](https://www.linkedin.com/in/mathis-k-a239ba10a/) | Quality Assurance |
+|  <img src="https://gravatar.com/avatar/c3ee79f954495877a945f77ffbf5a24a?size=72&d=mp">       | [Manech LAGUENS](https://www.linkedin.com/in/manech-laguens-020127293/) | Project Manager |
+|  <img src="https://gravatar.com/avatar/01c4dd4777d6fa4d4eb0e28ddbd34c79?size=72&d=mp">     | [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa12232/) | Program Manager |
+|   <img src="https://gravatar.com/avatar/ea5dac389e41ed1de63eca92a11a2403?size=72&d=mp">    | [Mattéo LEFIN](https://www.linkedin.com/in/matt%C3%A9o-lefin-380272293/) | Technical Leader | 
+|   <img src="https://gravatar.com/avatar/c8a06da2c80a003656e90ab4afa49ea8?size=72&d=mp">    | [Léo CHARTIER](https://www.linkedin.com/in/l%C3%A9o-chartier/) | Software Engineer |
+|   <img src="https://gravatar.com/avatar/e6ea4153c87da545fe1f149df5e2ea5e?size=72&d=mp">    | [Laurent BOUQUIN](https://www.linkedin.com/in/laurentb22/) | Technical Writer |
+|   <img src="https://gravatar.com/avatar/9ecd879a69ac5c4b96d4dbbbae581bdf?size=72&d=mp">    | [Mathis KAKAL](https://www.linkedin.com/in/mathis-k-a239ba10a/) | Quality Assurance |
 
 ## Stakeholders
 | Name | Role | Representing | Contact | Expectations |
@@ -38,19 +37,20 @@ This SportShield project aims to enhance the anti-theft device capabilities give
 
 ## Deliverables
 We must return the following documents:
-- Functional Specifications.
-- Technical Specifications.
-- Test Plan.
-- Weekly reports.
-- User Manual.
-- Management documentation.
+  - Functional Specifications.
+  - Technical Specifications.
+  - Test Plan.
+  - Weekly reports.
+  - User Manual.
+  - Management documentation.
 
 ## Milestones
-- Functional specification 18/3 5pm.
-- Technical specification 26/3 5pm.
-- Test plan 10/4 5pm.
-- User Manual 10/4 5pm.
-- Code 10/4 5pm.
-- Oral presentation 19/4 9am to 5pm.    
+Below are the due dates:
+  - Functional specification 18/3 5 pm.
+  - Technical specification 26/3 5 pm.
+  - Test plan 10/4 5 pm.
+  - User Manual 10/4 5 pm.
+  - Code 10/4 5 pm.
+  - Oral presentation 19/4 9 am to 5 pm.    
 
 

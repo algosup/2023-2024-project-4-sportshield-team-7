@@ -87,7 +87,7 @@ Tasks | Status | Deadline | People involved |
 :---: | :---: | :---: | :--: |
 Test plan and testing strategy | Done | 4/10/24 | Mathis |
 Roadmap | Done | 4/10/24 | Manech |
-Risks and mitigations plan | In progress | 4/10/24 | Manech |
+Risks and mitigations plan | Done | 4/10/24 | Manech |
 
 On this last week before the oral presentation training, we fine-tuned our documentation. We also started the organization of next week. 
 
