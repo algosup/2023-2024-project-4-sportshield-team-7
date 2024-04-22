@@ -92,16 +92,9 @@ Risks and mitigations plan | Done | 4/10/24 | Manech |
 On this last week before the oral presentation training, we fine-tuned our documentation. We also started the organization of next week. 
 
 
+## Week 5: 4/15/24 - 4/19/24
+
+This last week of the project was only about oral preparation and training. We made sure that we could be easily understood by the client and the stakeholders, by being as clear as possible in our speeches and prezi.
 
 
 
-Tasks | Status | Deadline | People involved |
-:---: | :---: | :---: | :--: |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
--- | -- | -- | -- |
